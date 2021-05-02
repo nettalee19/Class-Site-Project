@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken') 
 
-const UsersSchema = new mongoose.Schema({
+const TeachersSchema = new mongoose.Schema({
     id:{
         type: String,
         required: true,
@@ -26,6 +26,10 @@ const UsersSchema = new mongoose.Schema({
     email:{
         type: String,
         unique: true
+    },
+    subjects:{
+        type: Array,
+        unique: false
     },
     tokens:[{
         token:{
@@ -104,7 +108,7 @@ const UsersSchema = new mongoose.Schema({
 //     next()
 // })
 
-const Users = mongoose.model('students', UsersSchema)
+const Teachers = mongoose.model('teachers', TeachersSchema)
 
 
-module.exports= Users;
+module.exports= Teachers;

@@ -6,12 +6,16 @@ const mongoose = require('mongoose');
 const app = express();
 const path = require('path');
 const usersRoute = require('./routes/user.routes');
+const teachersRoute = require('./routes/teacher.routes');
+const classRoute = require('./routes/class.routes');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/users', usersRoute)
+app.use('/teachers', teachersRoute)
+app.use('/class', classRoute)
 
 app.get('/classes', (req,res)=>{
     const user = 'Netta';
