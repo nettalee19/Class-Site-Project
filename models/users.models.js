@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken') 
-const Task = require('./Tasks.models')
+// const bcrypt = require('bcryptjs')
+// const jwt = require('jsonwebtoken') 
 
 const UsersSchema = new mongoose.Schema({
     id:{
