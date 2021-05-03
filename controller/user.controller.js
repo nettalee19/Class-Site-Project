@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken') 
 const Users = require('../models/users.models')
 
 const getUsers = async (req,res) =>{
@@ -7,21 +8,30 @@ const getUsers = async (req,res) =>{
 }
 
 const addUser = async (req,res) =>{
-    const {id, name, age, password, email}  = req.body
+    // const {id, name, age, password, email}  = req.body
     
-        const newUser = new Users({
-            id : id, 
-            name: name, 
-            age: age,
-            password: password,
-            email: email
-        })
+    //     const newUser = new Users({
+    //         id : id, 
+    //         name: name, 
+    //         age: age,
+    //         password: password,
+    //         email: email
+    //     })
         
-        console.log(newUser)
-        newUser.save((err) => {
-            if (err) return res.status(400).send({"error": err})
-            return res.status(200).send({"success": newUser})
-        });
+    //     console.log(newUser)
+    //     newUser.save((err) => {
+    //         if (err) return res.status(400).send({"error": err})
+    //         return res.status(200).send({"success": newUser})
+    //     });
+
+        const student = new Users(req.body)
+        try{
+            await student.save()
+            const token = await student.generateAuthToken()
+            res.status(201).send({ student, token})
+        }catch(e){
+            res.status(400).send(e)
+        }
 }
 
 const updateMeStudent = async (req,res) =>{
