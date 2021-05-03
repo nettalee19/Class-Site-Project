@@ -3,20 +3,17 @@ import axios from 'axios';
 
 
 function User() {
-  const [user, setUser] = useState(null)
+  const [lesson, setLesson] = useState(null)
 
-  const getUser = async () =>{
-    //const data = await axios.get('api/getUser')
-    //const data = await axios.get('/classes')
-    //const data = await axios.get('/some')
-    const data = await axios.get('http://localhost:8000/users')
+  const getLesson = async () =>{
+    const data = await axios.get('http://localhost:8000/class')
     
     //setUser(data.data)
-    setUser(data.data)
+    setLesson(data.data)
   }
 
   useEffect(() => {
-    getUser()
+    getLesson()
   }, [])
 
 
@@ -24,13 +21,14 @@ function User() {
     <div className="App">
 
         <p>
-          {`Hello ${user}`}
+          {`Hello ${lesson}`}
           
-          {/* {user.map(user =>{
+          {/* {lesson.map(l =>{
             return <>
-              <p>ID: {user.id}</p>
-              <p>Name: {user.name}</p>
-              <p>Age: {user.age}</p>
+              
+              <p>Name: {l.name}</p>
+              <p>{l.description}</p>
+              
               
             <hr></hr>
           </>

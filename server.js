@@ -18,7 +18,7 @@ app.use('/users', usersRoute)
 app.use('/teachers', teachersRoute)
 app.use('/class', classRoute)
 
-app.get('/classes', (req,res)=>{
+app.get('http://localhost:8000/users', (req,res)=>{
     const user = 'Netta';
     res.json(user);
 })
