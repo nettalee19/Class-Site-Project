@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-function User() {
+function Navbar() {
   
   return (
     <div className="App">
@@ -13,4 +13,4 @@ function User() {
   );
 }
 
-export default User;
+export default Navbar;
