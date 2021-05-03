@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 // const jwt = require('jsonwebtoken') 
 
 const classSchema = new mongoose.Schema({
-    // id:{
-    //     type: String,
-    //     required: true,
-    //     unique: true
-    // },
+    id:{
+        type: String,
+        required: true,
+        unique: true
+    },
     name:{
         type: String,
         required: true,
@@ -22,12 +22,17 @@ const classSchema = new mongoose.Schema({
         type: Array,
         unique: false
     },
-    tokens:[{
-        token:{
-            type: String,
-            required: true
-        }
-    }],
+    owner:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'teachers'
+    },
+    // tokens:[{
+    //     token:{
+    //         type: String,
+    //         required: true
+    //     }
+    // }],
     avatar:{
         type: Buffer
     }
