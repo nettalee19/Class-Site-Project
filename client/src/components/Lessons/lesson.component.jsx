@@ -7,7 +7,7 @@ function User() {
 
   const getLesson = async () =>{
     const data = await axios.get('http://localhost:8000/class')
-    
+    console.log(data)
     //setUser(data.data)
     setLesson(data.data)
   }
@@ -23,7 +23,7 @@ function User() {
         <p>
           {`Hello ${lesson}`}
           
-          {lesson.map(l =>{
+          {/* {lesson.map(l =>{
             return <>
               
               <p>Name: {l.name}</p>
@@ -32,7 +32,7 @@ function User() {
               
             <hr></hr>
           </>
-      })}
+      })} */}
 
         </p>
         {/* <a
