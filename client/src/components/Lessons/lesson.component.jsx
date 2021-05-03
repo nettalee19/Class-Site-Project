@@ -23,7 +23,7 @@ function User() {
         <p>
           {`Hello ${lesson}`}
           
-          {/* {lesson.map(l =>{
+          {lesson.map(l =>{
             return <>
               
               <p>Name: {l.name}</p>
@@ -32,7 +32,7 @@ function User() {
               
             <hr></hr>
           </>
-      })} */}
+      })}
 
         </p>
         {/* <a
