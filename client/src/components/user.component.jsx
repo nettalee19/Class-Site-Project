@@ -6,7 +6,8 @@ function User() {
   const [user, setUser] = useState(null)
 
   const getUser = async () =>{
-    const data = await axios.get('api/getUser')
+    //const data = await axios.get('api/getUser')
+    const data = await axios.get('/classes')
     setUser(data.data)
   }
 
