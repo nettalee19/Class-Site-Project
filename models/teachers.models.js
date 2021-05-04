@@ -45,7 +45,7 @@ const TeachersSchema = new mongoose.Schema({
 
 
 TeachersSchema.virtual('lessons', {
-    ref: 'Lesson',
+    ref: 'lessons',
     localField:'_id',
     foreignField:'owner'
 
@@ -108,7 +108,7 @@ TeachersSchema.pre('save', async function (next) {
 //     next()
 // })
 
-const Teachers = mongoose.model('teachers', TeachersSchema)
+const Teachers = mongoose.model('Teachers', TeachersSchema)
 
 
 module.exports= Teachers;

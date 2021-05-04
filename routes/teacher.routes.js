@@ -5,9 +5,9 @@ const auth = require('../middleware/auth')
 
 const Teachers = require('../models/teachers.models');
 
-// router.get('/',auth, (req,res) =>{
-//     teacherController.getTeachers(req,res)
-// })
+router.get('/',auth, (req,res) =>{
+    teacherController.getTeachers(req,res)
+})
 
 router.get('/me',auth, (req,res) =>{
     res.send(req.teacher)

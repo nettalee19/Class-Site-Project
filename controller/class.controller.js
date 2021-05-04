@@ -1,4 +1,7 @@
 const Class = require('../models/class.models')
+const auth = require('../middleware/auth')
+const express = require('express');
+const router = express.Router();
 
 const getAllClass = async (req,res) =>{
     // const aClass = await Class.find()
@@ -24,20 +27,6 @@ const getAllClassByOwner = async (req,res) =>{
 }
 
 const addNewClass = async (req,res) =>{
-    // const {name, description, subjects}  = req.body
-    
-    //     const newClass = new Class({ 
-    //         name: name, 
-    //         description: description,
-    //         subjects: subjects
-    //     })
-        
-    //     console.log(newClass)
-    //     newClass.save((err) => {
-    //         if (err) return res.status(400).send({"error": err})
-    //         return res.status(200).send({"success": newClass})
-    //     });
-
     const aClass = new Class({
         ...req.body,
         owner: req.teacher._id

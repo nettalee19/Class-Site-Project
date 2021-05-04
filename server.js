@@ -30,7 +30,7 @@ mongoose.connect('mongodb://localhost/classes', {
     useFindAndModify: false,
     useCreateIndex: true
 }).then(() => {
-    console.log("database2 connected")
+    console.log("database connected")
 })
 
 const port = 8000;
@@ -45,6 +45,23 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
   }
+
+
+//const Tasks = require('./models/class.models')
+const teachers = require('./models/teachers.models')
+
+const main = async () =>{
+    // const task = await Tasks.findById('609125a82d5c91357812a0fd')
+    // await task.populate('owner').execPopulate()
+    // console.log(task.owner)
+
+    const user = await teachers.findById('60912525daf86e5674a8dbab')
+    await user.populate('tasks').execPopulate()
+    console.log(user.tasks)
+}
+main()
+
+
 app.listen(process.env.PORT || port , () =>{
     console.log(`Server started on port ${port}`)
 });
