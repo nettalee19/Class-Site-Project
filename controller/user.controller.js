@@ -54,12 +54,8 @@ const updateMeStudent = async (req,res) =>{
 
 const deleteMeStudent = async (req,res) =>{
     try{
-        const task = await Task.findOneAndDelete({ _id: req.params.id, owner:req.user._id })
-        if(!task){
-            return res.status(404).send()
-        }
-
-        res.send(task)
+        await req.student.remove()
+        res.send(req.student)
     }
     catch(e){
         res.status(500).send()
