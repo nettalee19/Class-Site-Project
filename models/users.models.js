@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-// const bcrypt = require('bcryptjs')
-// const jwt = require('jsonwebtoken') 
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken') 
 
 const UsersSchema = new mongoose.Schema({
     id:{
@@ -21,7 +21,7 @@ const UsersSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        
+        required: true
     },
     email:{
         type: String,
@@ -40,7 +40,7 @@ const UsersSchema = new mongoose.Schema({
 
 
 
-// AccountsSchema.virtual('tasks', {
+// UsersSchema.virtual('tasks', {
 //     ref: 'tasks',
 //     localField:'_id',
 //     foreignField:'owner'
