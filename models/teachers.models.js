@@ -57,7 +57,7 @@ TeachersSchema.methods.toJSON = function (){
 
     delete userObject.password
     delete userObject.tokens
-    //delete userObject.avatars
+    delete userObject.avatars
 
 
     return userObject

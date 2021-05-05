@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const teacherController = require('../controller/teacher.controller');
 const auth = require('../middleware/auth')
-
+const multer = require('multer')
+const sharp = require('sharp')
 const Teachers = require('../models/teachers.models');
 
 router.get('/',auth, (req,res) =>{
@@ -62,6 +63,56 @@ router.post('/logoutAll', auth, async (req,res) =>{
         res.send()
     }catch(e){
         res.status(500).send()
+    }
+})
+
+
+
+
+
+
+
+
+const upload = multer({
+    //dest: 'avatars',
+    limits: {
+        fileSize: 1000000
+    },
+    fileFilter(req, file, cb){
+        if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+            return cb(new Error('Please upload a JPG/JPEG/PNG document'))
+        }
+        cb(undefined, true)
+    }
+})
+
+router.post('/me/avatar', auth, upload.single('avatar'), async (req,res) =>{
+    const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250}).png().toBuffer()
+    req.user.avatar = buffer
+    await req.user.save()
+    res.send()
+}, (error, req, res, next) =>{
+    res.status(400).send({error: error.message})
+})
+
+router.delete('/me/avatar', auth, async (req,res) =>{
+    req.user.avatar = undefined
+    await req.user.save()
+    res.send()
+})
+
+router.get('/:id/avatar', async (req,res) =>{
+    try{
+        const teacher= await Teachers.findById(req.params.id)
+
+        if(!teacher || !teacher.avatar){
+            throw new Error()
+        }
+
+        res.set('Content-Type','image/jpg')
+        res.send(teacher.avatar)
+    }catch(e){
+        res.status(404).send()
     }
 })
 
