@@ -25,7 +25,7 @@ function User() {
     <div className="App">
 
         <p>
-          {`Hello ${user}`}
+          {`All users: ${user}`}
           
           {/* {user.map(user =>{
             return <>

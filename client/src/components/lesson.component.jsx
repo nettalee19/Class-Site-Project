@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 
 
-function User() {
+function Lesson() {
   const [lesson, setLesson] = useState(null)
 
   const getLesson = async () =>{
@@ -20,10 +20,10 @@ function User() {
   return (
     <div className="App">
 
+          {`Lessons: ${lesson}`}
         <div className="lessons">
-          {/* {`Hello ${lesson}`} */}
           
-        {lesson.map(l =>{
+        {/* {lesson.map(l =>{
             return <>
              <div >
               <h4>{l.name}</h4>
@@ -31,22 +31,12 @@ function User() {
             </div> 
             <hr></hr>
           </>
-        })}
+        })} */}
 
         </div>
-
-       
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
       
     </div>
   );
 }
 
-export default User;
+export default Lesson;

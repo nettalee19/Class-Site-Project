@@ -4,6 +4,7 @@ import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import User from './components/user.component';
 import Lesson from './components/lesson.component';
+import Teacher from './components/teacher.component';
 import Header from './components/Header';
 import Login from './components/LoginTeachers';
 import axios from 'axios';
@@ -26,8 +27,9 @@ function App() {
       <BrowserRouter>
     
         <Route exact path='/' component={Header}  />
-        <Route exact path='/' component={User} />
+        {/* <Route exact path='/' component={User} />
         <Route exact path='/' component={Lesson} />
+        <Route exact path='/' component={Teacher} /> */}
         <Route exact path='/loginTeachers' component={Login} user={user}/>
         {/* {`Hello ${user}`} */}
         
