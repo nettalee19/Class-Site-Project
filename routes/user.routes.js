@@ -5,7 +5,7 @@ const auth = require('../middleware/authStudent')
 
 const Users = require('../models/users.models');
 
-router.get('/',auth, (req,res) =>{
+router.get('/', (req,res) =>{
     userController.getUsers(req,res)
 })
 

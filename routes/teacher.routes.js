@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const teacherController = require('../controller/teacher.controller');
+
+const Teachers = require('../models/teachers.models');
+
 const auth = require('../middleware/auth')
 const multer = require('multer')
 const sharp = require('sharp')
-const Teachers = require('../models/teachers.models');
 
-router.get('/',auth, (req,res) =>{
+router.get('/', (req,res) =>{
     teacherController.getTeachers(req,res)
 })
 
