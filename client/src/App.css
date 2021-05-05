@@ -38,21 +38,3 @@
 } */
 
 
-.lessons{
-  /* display: flex;
-  justify-content:flex-end; */
-  display: grid;
-  grid-template-columns: repeat(7, 5rem [col-start]);
-}
-
-
-
-
-
-
-/* teachers login */
-.loginTeachers{
-  text-align: center;
-  /* padding: 10px;
-  margin: 10px; */
-}

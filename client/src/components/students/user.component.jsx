@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 function User() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState([])
 
   const getUser = async () =>{
     //const data = await axios.get('api/getUser')
@@ -25,9 +25,9 @@ function User() {
     <div className="App">
 
         <p>
-          {`All users: ${user}`}
+          {/* {`All users: ${user}`}
           
-          {/* {user.map(user =>{
+          {user.map(user =>{
             return <>
               <p>ID: {user.id}</p>
               <p>Name: {user.name}</p>

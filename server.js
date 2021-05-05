@@ -18,14 +18,16 @@ app.use('/users', usersRoute)
 app.use('/teachers', teachersRoute)
 app.use('/class', classRoute)
 
-app.get('http://localhost:8000/users', (req,res)=>{
-    const user = 'Netta';
-    res.json(user);
-})
+// app.get('http://localhost:8000/users', (req,res)=>{
+//     const user = 'Netta';
+//     res.json(user);
+// })
 
+// Connect to db with mongoose
 mongoose.connect('mongodb://localhost/classes', {
 //mongoose.connect('mongodb+srv://nettalee19:dM_HqsyqT9K8LK.@cluster0.u9jns.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
 //mongoose.connect('mongodb+srv://nettalee19:dM_HqsyqT9K8LK.@cluster0.u9jns.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+//mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -36,6 +38,7 @@ mongoose.connect('mongodb://localhost/classes', {
 
 const port = 8000;
 
+// Connecting to client side
 if (process.env.NODE_ENV === 'production') {
     // Exprees will serve up production assets
     app.use(express.static('client/build'));

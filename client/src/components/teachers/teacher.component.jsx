@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 function Teacher() {
-  const [teacher, setTeacher] = useState(null)
+  const [teacher, setTeacher] = useState([])
 
   const getTeacher = async () =>{
     //const data = await axios.get('api/getUser')
@@ -25,7 +25,17 @@ function Teacher() {
 
         <p>
           {`All teachers: ${teacher}`}
+         
           
+          {/* {teacher.map(t =>{
+            return <>
+              <p>ID: {t.id}</p>
+              <p>Name: {t.name}</p>
+            
+              
+            <hr></hr>
+          </>
+      })} */}
 
 
         </p>

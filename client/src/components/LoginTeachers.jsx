@@ -1,34 +1,62 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState , useRef} from 'react'
 import axios from 'axios';
 
 
 function LoginTeachers() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [user, setUser] = useState(null)
 
-  const sumbitHandler = (e) =>{
-    e.preventDefault()
+  const login = async() =>{
+    try{
+      const response = await axios.post('/teachers/loginTeachers',{
+        email,
+        password
+      })
+    }catch(error){
+      console.log(error)
+    }
+
+    
   }
+    const sumbitHandler= (e)=>{
+      e.preventDefault()
+    }
+    
+    const clickHandler = ()=>{
+      login();
+    }
 
-  const getUser = async () =>{
-    const data = await axios.get('http://localhost:8000/users')
-    setUser(data.data)
-  }
+  // const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    getUser()
-  }, [])
+  // const sumbitHandler = (e) =>{
+  //   e.preventDefault()
+  //   try{
+
+  //   }catch(error){
+  //     console.log("wrong")
+  //   }
+  // }
+
+  // const getUser = async () =>{
+  //   const data = await axios.get('http://localhost:8000/users')
+  //   setUser(data.data)
+  // }
+
+  // useEffect(() => {
+  //   getUser()
+  // }, [])
 
 
   return (
     <div className="loginTeachers">
       <form onSubmit={sumbitHandler}>
         <h2>Teachers Login:</h2>
-        Email: <input type="text" placeholder="enter email" onChange={e => setEmail(e.target.value)}/><br/>
+        <label>Email:</label> 
+        <input type="text" placeholder="enter email" onChange={e => setEmail(e.target.value)}/><br/>
         {/* {console.log(email)} */}
-        Password: <input type="text" placeholder="enter password" onChange={p => setPassword(p.target.value)}/><br/>
-        <input type="submit"/>
+        <label>Password:</label> 
+        <input type="text" placeholder="enter password" onChange={p => setPassword(p.target.value)}/><br/>
+        <input type="submit" onClick={clickHandler}/>
 
       </form>
 

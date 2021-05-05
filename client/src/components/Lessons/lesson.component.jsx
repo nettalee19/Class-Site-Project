@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
-
+import '../Lessons/lessons.css'
 
 function Lesson() {
-  const [lesson, setLesson] = useState(null)
+  const [lesson, setLesson] = useState([])
 
   const getLesson = async () =>{
     const data = await axios.get('http://localhost:8000/class')
@@ -18,20 +18,19 @@ function Lesson() {
 
 
   return (
-    <div className="App">
+    <div className="Lesson">
 
-          {`Lessons: ${lesson}`}
+          {/* {`Lessons: ${lesson}`} */}
         <div className="lessons">
           
-        {/* {lesson.map(l =>{
+        {lesson.map(l =>{
             return <>
-             <div >
+             <div className="lessonBox">
               <h4>{l.name}</h4>
               <p>{l.description}</p>
             </div> 
-            <hr></hr>
           </>
-        })} */}
+        })}
 
         </div>
       

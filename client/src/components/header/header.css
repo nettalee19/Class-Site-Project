@@ -1,0 +1,31 @@
+.Header{
+    display: flex;
+    justify-content: center;
+    background: cornflowerblue;
+    position: relative;
+}
+
+.Header ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.Header li{
+   padding: 10px;
+    /* display: flex; */
+}
+
+.SigninLogin{
+    padding-left: 85vw;
+    position: absolute;
+}
+
+.headerLink{
+    text-decoration: none;
+    
+}
+
+.headerLink:hover{
+    color: darkblue;
+}
