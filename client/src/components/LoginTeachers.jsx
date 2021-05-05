@@ -22,7 +22,7 @@ function LoginTeachers() {
 
 
   return (
-    <div className="App">
+    <div className="loginTeachers">
       <form onSubmit={sumbitHandler}>
         <h2>Teachers Login:</h2>
         Email: <input type="text" placeholder="enter email" onChange={e => setEmail(e.target.value)}/><br/>

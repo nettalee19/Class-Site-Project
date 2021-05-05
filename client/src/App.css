@@ -1,8 +1,8 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
-.App-logo {
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +35,24 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+.lessons{
+  /* display: flex;
+  justify-content:flex-end; */
+  display: grid;
+  grid-template-columns: repeat(7, 5rem [col-start]);
+}
+
+
+
+
+
+
+/* teachers login */
+.loginTeachers{
+  text-align: center;
+  /* padding: 10px;
+  margin: 10px; */
 }

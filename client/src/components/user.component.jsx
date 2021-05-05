@@ -9,6 +9,7 @@ function User() {
     //const data = await axios.get('api/getUser')
     //const data = await axios.get('/classes')
     //const data = await axios.get('/some')
+    //const data = await axios.get('http://localhost:8000/users')
     const data = await axios.get('http://localhost:8000/users')
     
     //setUser(data.data)
@@ -37,14 +38,6 @@ function User() {
       })} */}
 
         </p>
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
       
     </div>
   );

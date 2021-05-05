@@ -3,7 +3,7 @@ import './App.css';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import User from './components/user.component';
-import Lesson from './components/Lessons/lesson.component';
+import Lesson from './components/lesson.component';
 import Header from './components/Header';
 import Login from './components/LoginTeachers';
 import axios from 'axios';
@@ -15,9 +15,10 @@ function App() {
     const data = await axios.get('http://localhost:8000/users')
     setUser(data.data)
   }
-
+  
   useEffect(() => {
     getUser()
+    console.log(user)
   }, [])
 
   return (
@@ -28,7 +29,9 @@ function App() {
         <Route exact path='/' component={User} />
         <Route exact path='/' component={Lesson} />
         <Route exact path='/loginTeachers' component={Login} user={user}/>
-        {`Hello ${user}`}
+        {/* {`Hello ${user}`} */}
+        
+        
       </BrowserRouter>
 
     </div>

@@ -20,21 +20,22 @@ function User() {
   return (
     <div className="App">
 
-        <p>
-          {`Hello ${lesson}`}
+        <div className="lessons">
+          {/* {`Hello ${lesson}`} */}
           
-          {/* {lesson.map(l =>{
+        {lesson.map(l =>{
             return <>
-              
-              <p>Name: {l.name}</p>
+             <div >
+              <h4>{l.name}</h4>
               <p>{l.description}</p>
-              
-              
+            </div> 
             <hr></hr>
           </>
-      })} */}
+        })}
 
-        </p>
+        </div>
+
+       
         {/* <a
           className="App-link"
           href="https://reactjs.org"
