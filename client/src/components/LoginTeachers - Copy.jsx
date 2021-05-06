@@ -9,42 +9,24 @@ function LoginTeachers() {
   const [password, setPassword] = useState('')
 
   const [worngCredentials, setWorngCredentials] = useState("");
-  const signupBtn = useRef(null);
 
-
-  // const login = async(e) =>{
-  //   e.preventDefault()
-  //   try{
-  //     const data = await api.post('/teachers/login',{
-  //       email,
-  //       password
-  //     })
-  //     localStorage.setItem("token", data.teacher.token)
-  //   }catch(error){
-  //     console.log(error)
-  //   }
+  const login = async(e) =>{
+    e.preventDefault()
+    try{
+      const data = await api.post('/teachers/login',{
+        email,
+        password
+      })
+      localStorage.setItem("token", data.teacher.token)
+    }catch(error){
+      console.log(error)
+    }
 
     
-  // }
-
-  const login = async (e) => {
-		e.preventDefault();
-		try {
-			const { data } = await api.post("/teachers/login", {
-				email,
-				password,
-			});
-			localStorage.setItem("token", data.token);
-      console.log(data.token)
-      console.log(data.teacher.name)
-		} catch (e) {
-			setWorngCredentials("User does not exist");
-		}
-	};
-
-    // const sumbitHandler= (e)=>{
-    //   e.preventDefault()
-    // }
+  }
+    const sumbitHandler= (e)=>{
+      e.preventDefault()
+    }
     
     // const clickHandler = ()=>{
     //   login();
@@ -73,30 +55,29 @@ function LoginTeachers() {
 
   return (
     <div className="loginTeachers">
-      
-      {/* <form onSubmit={sumbitHandler}>
+      <form onSubmit={sumbitHandler}>
         <h2>Teachers Login:</h2>
         <label>Email:</label> 
         <input type="text" placeholder="enter email" onChange={e => setEmail(e.target.value)}/><br/>
-        
+        {/* {console.log(email)} */}
         <label>Password:</label> 
         <input type="text" placeholder="enter password" onChange={p => setPassword(p.target.value)}/><br/>
         <input type="submit" onClick={login}/>
 
-      </form> */}
+      </form>
 
       <div className="form-container sign-in-container">
 					<form>
-						<h1>Log in</h1>
+						<h1>Sign in</h1>
 						<input
 							type="email"
 							placeholder="Email"
-							onChange={(e) => setEmail(e.target.value)}
+							onChange={(e) => setEmail(e.currentTarget.value)}
 						/>
 						<input
 							type="password"
 							placeholder="Password"
-							onChange={(e) => setPassword(e.target.value)}
+							onChange={(e) => setPassword(e.currentTarget.value)}
 						/>
 						<button onClick={login}>Sign In</button>
 						<h4 className="wrong">{worngCredentials}</h4>
