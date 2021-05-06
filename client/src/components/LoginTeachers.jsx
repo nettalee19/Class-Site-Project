@@ -5,8 +5,12 @@ import api from '../components/ApiSource/api'
 
 
 function LoginTeachers() {
-  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [id, setId] = useState('')
+  const [age, setAge] = useState('')
   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  
 
   const [worngCredentials, setWorngCredentials] = useState("");
   const signupBtn = useRef(null);
@@ -39,6 +43,24 @@ function LoginTeachers() {
       console.log(data.teacher.name)
 		} catch (e) {
 			setWorngCredentials("User does not exist");
+		}
+	};
+
+  const signUp = async (e) => {
+		e.preventDefault();
+		try {
+			const { data } = await api.post("/teachers", {
+				id,
+        name,
+        age,
+        email,
+				password,
+			});
+			localStorage.setItem("token", data.token);
+      console.log(data.token)
+      console.log(data.teacher.name)
+		} catch (e) {
+			console.log("error")
 		}
 	};
 
@@ -98,7 +120,41 @@ function LoginTeachers() {
 							placeholder="Password"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
-						<button onClick={login}>Sign In</button>
+						<button onClick={login}>Login</button>
+						<h4 className="wrong">{worngCredentials}</h4>
+					</form>
+				</div>
+
+
+      <div className="form-container ">
+					<form>
+						<h1>Sign Up</h1>
+            <input
+							type="number"
+							placeholder="Id"
+							onChange={(e) => setId(e.target.value)}
+						/>
+            <input
+							type="name"
+							placeholder="Name"
+							onChange={(e) => setName(e.target.value)}
+						/>
+            <input
+							type="number"
+							placeholder="Age"
+							onChange={(e) => setAge(e.target.value)}
+						/>
+						<input
+							type="email"
+							placeholder="Email"
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+						<input
+							type="password"
+							placeholder="Password"
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+						<button onClick={signUp}>Sign Un</button>
 						<h4 className="wrong">{worngCredentials}</h4>
 					</form>
 				</div>

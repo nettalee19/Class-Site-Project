@@ -12,27 +12,27 @@ function Header() {
         
         
         <ul>
-          <li>Coffee </li>
+          <li>Cof </li>
           
         </ul>
 
         <ul>
-          <li>Coffee </li>
-          <li>Coffee </li>
-          <li>Coffee </li>
+          <li>Coe </li>
+          <li>Co </li>
+          <li>C </li>
         </ul>
 
 
 
         <ul className="SigninLogin">
           <Route>
-          <li className="headerLink"><Link to="/loginTeachers">Sign In</Link></li>
+          <li className="headerLink"><Link to="/loginTeachers">Teachers</Link></li>
 
           </Route>
 
 
           
-          <li className="headerLink"><Link>Login</Link></li>
+          <li className="headerLink"><Link>Students</Link></li>
           
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import './App.css';
 import { Route } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import User from './components/students/user.component';
 import Lesson from './components/Lessons/lesson.component';
 import Teacher from './components/teachers/teacher.component';
@@ -47,21 +47,29 @@ function App() {
 
 
   return (
+    <BrowserRouter>
     <div>
-      <BrowserRouter>
-    
-        <Route exact path='/' component={Header}  />
-        {/* <Route exact path='/' component={Login} user={user}/> */}
-        <Route exact path='/' component={User} />
-        <Route exact path='/' component={Lesson} />
-        <Route exact path='/' component={Teacher} />
-        <Route exact path='/loginTeachers' component={Login} user={user}/>
+        {/* <Route exact path='/' component={Header} /> */}
+        <Header/>
+      
+        <Switch>
+          <Route exact path='/' component={User} >
+            <Lesson/>
+          </Route>
+          {/* <Route exact path='/' component={Lesson} />
+          <Route exact path='/' component={Teacher} /> */}
+          
+          <Route exact path='/loginTeachers' component={Login} user={user}>
+            <Login/>
+          </Route>
+
+        </Switch>
         {/* {`Hello ${user}`} */}
         
         
+    </div>
       </BrowserRouter>
 
-    </div>
   );
 }
 
