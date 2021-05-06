@@ -1,44 +1,47 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios';
-
+//import axios from 'axios';
+import api from '../ApiSource/api'
 
 function Teacher() {
   const [teacher, setTeacher] = useState([])
+  const [token] = useState(localStorage.getItem("token"));
 
   const getTeacher = async () =>{
-    //const data = await axios.get('api/getUser')
-    //const data = await axios.get('/classes')
-    //const data = await axios.get('/some')
-    //const data = await axios.get('http://localhost:8000/users')
-    const data = await axios.get('http://localhost:8000/teachers')
+    const data = await api.get('/teachers/me',{
+      headers: { Authorization: `Bearer ${token}` }
+    })
   
     setTeacher(data.data)
+    console.log(teacher)
+  }
+  const editTeacher = async () =>{
+    // const data = await api.get('/teachers/me',{
+    //   headers: { Authorization: `Bearer ${token}` }
+    // })
+  
+    // setTeacher(data.data)
+    console.log(teacher)
   }
 
   useEffect(() => {
     getTeacher()
+    
   }, [])
 
 
   return (
-    <div className="App">
+    <div className="TeacherMe">
 
-        <p>
-          {`All teachers: ${teacher}`}
-         
-          
-          {/* {teacher.map(t =>{
-            return <>
-              <p>ID: {t.id}</p>
-              <p>Name: {t.name}</p>
-            
-              
-            <hr></hr>
-          </>
-      })} */}
+      <p>{teacher.name}</p>
+      <p>{teacher.age}</p>
+      <p>{teacher.email}</p>
+      {/* <p>{teacher.subjects}</p> */}
+      {/* Teaches: {teacher.subjects.map(s => <>{s}, </>)} */}
 
-
-        </p>
+      <input 
+      type="button" 
+      value="Edit"
+      onClick={editTeacher}/>
       
     </div>
   );

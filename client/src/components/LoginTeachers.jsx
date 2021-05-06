@@ -57,8 +57,9 @@ function LoginTeachers() {
 				password,
 			});
 			localStorage.setItem("token", data.token);
-      console.log(data.token)
-      console.log(data.teacher.name)
+      //console.log(data.token)
+      //console.log(data.teacher.name)
+      console.log(data)
 		} catch (e) {
 			console.log("error")
 		}
@@ -155,7 +156,7 @@ function LoginTeachers() {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<button onClick={signUp}>Sign Un</button>
-						<h4 className="wrong">{worngCredentials}</h4>
+						{/* <h4 className="wrong">{worngCredentials}</h4> */}
 					</form>
 				</div>
 

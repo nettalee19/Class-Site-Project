@@ -63,6 +63,10 @@ function App() {
             <Login/>
           </Route>
 
+          <Route exact path='/loginTeachers/me' component={Login} user={user}>
+            <Teacher/>
+          </Route>
+
         </Switch>
         {/* {`Hello ${user}`} */}
         
