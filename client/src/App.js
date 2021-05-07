@@ -6,6 +6,7 @@ import User from './components/students/user.component';
 import Lesson from './components/Lessons/lesson.component';
 import Teacher from './components/teachers/teacher.component';
 import Header from './components/header/Header';
+import AddNewLesson from './components/Lessons/AddNewLesson';
 import Login from './components/LoginTeachers';
 import axios from 'axios';
 import api from './components/ApiSource/api'
@@ -53,19 +54,25 @@ function App() {
         <Header/>
       
         <Switch>
-          <Route exact path='/' component={User} >
+          <Route exact path='/lessons' >
             <Lesson/>
           </Route>
           {/* <Route exact path='/' component={Lesson} />
           <Route exact path='/' component={Teacher} /> */}
           
-          <Route exact path='/loginTeachers' component={Login} user={user}>
+          <Route exact path='/loginTeachers'>
             <Login/>
           </Route>
 
-          <Route exact path='/loginTeachers/me' component={Login} user={user}>
+          <Route exact path='/loginTeachers/me' >
             <Teacher/>
           </Route>
+
+
+          <Route exact path='/loginTeachers/me/addNewLesson'>
+            <AddNewLesson/>
+          </Route>
+
 
         </Switch>
         {/* {`Hello ${user}`} */}

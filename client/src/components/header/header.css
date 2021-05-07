@@ -12,8 +12,13 @@
 }
 
 .Header li{
-   padding: 10px;
+   padding: 5px;
     /* display: flex; */
+}
+
+.homeLink{
+    position: absolute;
+    left: 0.6rem;
 }
 
 .SigninLogin{
@@ -24,8 +29,10 @@
 .headerLink{
     text-decoration: none;
     
+    
 }
 
 .headerLink:hover{
-    color: darkblue;
+    color: rgb(139, 0, 93);
+    border: darkblue 1px solid;
 }
