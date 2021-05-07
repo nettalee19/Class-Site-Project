@@ -26,9 +26,8 @@ function Header() {
         </ul>
 
         <ul>
-          <li>Coe </li>
-          <li>Co </li>
-          <li>C </li>
+          <li>  </li>
+          
         </ul>
 
       </BrowserRouter> 

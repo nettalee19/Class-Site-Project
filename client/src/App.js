@@ -57,6 +57,7 @@ function App() {
           <Route exact path='/lessons' >
             <Lesson/>
           </Route>
+          
           {/* <Route exact path='/' component={Lesson} />
           <Route exact path='/' component={Teacher} /> */}
           

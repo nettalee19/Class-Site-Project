@@ -19,6 +19,7 @@ const classSchema = new mongoose.Schema({
         unique: false
     },
     subjects:{
+        //type: String,
         type: Array,
         unique: false
     },

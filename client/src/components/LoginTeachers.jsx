@@ -1,8 +1,10 @@
 import React, { useEffect, useState , useRef} from 'react'
 import axios from 'axios';
+import {  useHistory } from 'react-router-dom';
 
 import api from '../components/ApiSource/api'
 
+ 
 
 function LoginTeachers() {
   const [name, setName] = useState('')
@@ -13,8 +15,9 @@ function LoginTeachers() {
   
 
   const [worngCredentials, setWorngCredentials] = useState("");
-  const signupBtn = useRef(null);
+  // const signupBtn = useRef(null);
 
+  //const history = useHistory()
 
   // const login = async(e) =>{
   //   e.preventDefault()
@@ -30,9 +33,11 @@ function LoginTeachers() {
 
     
   // }
+  
 
   const login = async (e) => {
 		e.preventDefault();
+    
 		try {
 			const { data } = await api.post("/teachers/login", {
 				email,
@@ -41,6 +46,7 @@ function LoginTeachers() {
 			localStorage.setItem("token", data.token);
       console.log(data.token)
       console.log(data.teacher.name)
+      // history.push('/')
 		} catch (e) {
 			setWorngCredentials("User does not exist");
 		}

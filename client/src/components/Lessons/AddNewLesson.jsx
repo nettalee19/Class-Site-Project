@@ -7,22 +7,41 @@ import api from '../ApiSource/api'
 function AddNewLesson() {
 	const [name, setName] = useState('')
 	const [description, setDescription] = useState('')
-	const [subjects, setSubjects] = useState('')
+	//const [subjects, setSubjects] = useState('')
+	const [token] = useState(localStorage.getItem("token"));
 
 	const addLesson = async (e) => {
 		e.preventDefault();
-		try {
-			const { data } = await api.post("/class", {
-				name,
-				description,
-				subjects
-			});
-			//localStorage.setItem("token", data.newLesson);
-      	console.log(data.newLesson)
+		const token2= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyOGYzYTk3MjU5ODNhMWNlMzU5MTMiLCJpYXQiOjE2MjAzOTc0MDB9.QTsLTY2GgdQnUXwoI5dRRGNLE4kb9j4A_0_BefLNC7I"
+		// try {
+		// 	const { data } = await api.post("/class", 
+		// 		{
+		// 			name:"test",
+		// 			description:"brooo"
+		// 		},
+		// 		headers: { Authorization: `Bearer ${token2}` },
+		// 	);
+			//localStorage.setItem("newLesson", data.newLesson);
+      	// console.log(data.newLesson)
     //  console.log(data.teacher.name)
-		} catch (error) {
-			console.log(error)
-		}
+		// } catch (error) {
+		// 	console.log(error.response)
+		// }
+		const config = {
+			headers: { Authorization: `Bearer ${token}` }
+		};
+		
+		const bodyParameters = {
+		   name,
+		   description
+		};
+		
+		await api.post( 
+		  '/class',
+		  bodyParameters,
+		  config
+		).then(console.log).catch(console.log());
+		
 	};
 
 
@@ -45,11 +64,11 @@ function AddNewLesson() {
 						cols="50"
 						onChange={(e) => setDescription(e.target.value)}/>
 						
-						<input
+						{/* <input
 							type="subjects"
 							placeholder="subjects"
 							onChange={(e) => setSubjects(e.target.value)}
-						/>
+						/> */}
 
 
 						{/* <button onClick={signUp}>Sign Un</button> */}
