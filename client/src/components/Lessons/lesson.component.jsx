@@ -28,6 +28,9 @@ function Lesson() {
              <div className="lessonBox">
               <h4>{l.name}</h4>
               <p>{l.description}</p>
+
+              
+
             </div> 
           </>
         })}

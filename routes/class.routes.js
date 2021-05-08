@@ -66,9 +66,21 @@ router.put('/:id', (req,res) =>{ //add auth
     classController.updateClass(req,res)
 })
 
-// router.delete('/me', (req,res) =>{ //add auth
-//     teacherController.deleteMeTeacher(req,res)
-// })
+router.delete('/:id',auth, async(req,res) =>{ //add auth
+    try{
+        // const user= await Accounts.findByIdAndDelete(req.user._id)
+
+        const task = await Lesson.findOneAndDelete({ _id: req.params.id, owner:req.teacher._id })
+        if(!task){
+            return res.status(404).send()
+        }
+
+        res.send(task)
+    }
+    catch(e){
+        res.status(500).send()
+    }
+})
 
 
 module.exports = router;

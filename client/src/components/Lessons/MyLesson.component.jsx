@@ -12,6 +12,22 @@ function Lesson({teacher}) {
     setLesson(data.data)
   }
 
+  const deleteLesson = async () =>{
+    // //try{
+    //   const data = await api.delete('/teachers/me',{
+    //     headers: { Authorization: `Bearer ${token}` }
+    //   })
+    //   localStorage.removeItem("token", data.token)
+    //   console.log(data.token)
+
+    // // }catch(error){
+    // //   console.log("error")
+    // // }
+  
+    // setTeacher(data.data)
+    console.log(teacher)
+  }
+
   useEffect(() => {
     getLesson()
   }, [])
@@ -31,6 +47,9 @@ function Lesson({teacher}) {
              <div className="lessonBox">
               <h4>{l.name}</h4>
               <p>{l.description}</p>
+
+              <button onClick={deleteLesson}>Delete Class</button>
+              <button>Edit Class</button>
             </div> 
           </>
 
