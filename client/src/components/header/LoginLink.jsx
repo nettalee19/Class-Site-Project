@@ -12,13 +12,14 @@ function LoginLink() {
 
         <ul className="SigninLogin homeLink">
           <Route>
-          <Link to="/loginTeachers"><li className="headerLink">Teachers</li></Link>
-
+            <Link to="/loginTeachers"><li className="headerLink">Teachers</li></Link>
           </Route>
 
 
-          
-          <li className="headerLink"><Link>Students</Link></li>
+          <Route>
+          <Link to="/loginStudents"><li className="headerLink">Students</li></Link>
+
+          </Route>
           
 
 

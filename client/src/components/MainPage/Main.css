@@ -1,0 +1,50 @@
+/* .mainPhoto{
+    width: 30vw;
+} */
+:root {
+    /* --main-bg-color: cornflowerblue; */
+    --main-bg-color: #657dc4;
+    --second-bg-color: #838ed9;
+    --back-bg-color: #ece8e5;
+    --third-bg-color: #f59292;
+    
+
+  }
+
+.second{
+    background: orange;
+}
+
+/* @keyframes cf3FadeInOut {
+    0% {
+    opacity:1;
+  }
+  45% {
+  opacity:1;
+  }
+  55% {
+  opacity:0;
+  }
+  100% {
+  opacity:0;
+  }
+  }
+  
+  #cf3 img .top {
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-direction: alternate;
+  } */
+
+  .main{
+      display: flex;
+      background: var(--back-bg-color);
+      height: 84vh;
+  }
+
+  .mainText{
+    text-align: center;
+    padding: 6rem;
+  }

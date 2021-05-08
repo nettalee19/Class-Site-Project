@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+
+:root {
+    /* --main-bg-color: cornflowerblue; */
+    --main-bg-color: #657dc4;
+    --second-bg-color: #838ed9;
+    --back-bg-color: #ece8e5;
+    --third-bg-color: #f59292;
+    
+
+  }
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+
 .Header{
     display: flex;
     justify-content: center;
-    background: cornflowerblue;
+    background: var(--main-bg-color);
     position: relative;
 }
 
@@ -19,22 +36,37 @@
 .homeLink{
     position: absolute;
     left: 0.6rem;
+    text-decoration: none;
 }
 
 .SigninLogin{
     padding-left: 85vw;
     position: absolute;
+    top: -1rem;
+}
+.SigninLogin li{
+
+    text-decoration: none;
 }
 
 .headerLink{
     text-decoration: none;
-    
-    
 }
 
 .headerLink:hover{
     color: rgb(139, 0, 93);
-    border: darkblue 1px solid;
+    /* border: darkblue 1px solid; */
+}
+
+
+
+
+
+.footer{
+    height: 5vh;
+    background: var(--main-bg-color);
+    text-align: center;
+    
 }
 
 /* .LogoutBtn button{
@@ -48,3 +80,4 @@
 /* .LogoutBtn:hover{
     background: orange;
 } */
+

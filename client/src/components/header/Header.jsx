@@ -16,26 +16,27 @@ function Header() {
       
       <BrowserRouter>
         
-        
-        <ul className="homeLink">
-        <Route>
-        <li className="headerLink"><Link to="/">Home</Link></li>
-
+          <Route >
+            <Link to="/" className="homeLink">Home</Link>
           </Route>
-          
-        </ul>
+        
+        {/* <ul className="homeLink">
+          <Route>
+            <Link to="/"><li className="headerLink">Home</li></Link>
+          </Route>
+        </ul> */}
 
         <ul>
           <li>  </li>
-          
         </ul>
-
-      </BrowserRouter> 
-      {/* <LoginLink/> */}
 
       {!token && <LoginLink/>} 
       {token && <Welcome/>} 
       {token &&<LogoutBtn/>} 
+      </BrowserRouter> 
+
+      {/* <LoginLink/> */}
+
 
     </div>
   );

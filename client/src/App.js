@@ -11,7 +11,11 @@ import Login from './components/LoginTeachers';
 import LoginStu from './components/LoginStudents';
 import axios from 'axios';
 import api from './components/ApiSource/api'
-
+import EditLesson from './components/Lessons/EditLesson'
+import Main from './components/MainPage/MainContent'
+import Second from './components/MainPage/Second'
+import Footer from './components/Footer/Footer'
+// import './components/MainPage/Main.css'
 
 
 function App() {
@@ -55,6 +59,13 @@ function App() {
         <Header/>
       
         <Switch>
+
+          <Route exact path='/' >
+            <Main/>
+            {/* <Second/> */}
+            
+          </Route>
+
           <Route exact path='/lessons' >
             <Lesson/>
           </Route>
@@ -75,12 +86,18 @@ function App() {
             <AddNewLesson/>
           </Route>
 
+          <Route exact path='/loginTeachers/me/editLesson'>
+              <EditLesson/>
+           </Route>
+
           {/* <Route exact path='/'>
             <LoginStu/>
           </Route> */}
 
 
         </Switch>
+        
+        <Footer/>
         {/* {`Hello ${user}`} */}
         
         
