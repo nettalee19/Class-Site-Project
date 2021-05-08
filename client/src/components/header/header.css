@@ -36,3 +36,15 @@
     color: rgb(139, 0, 93);
     border: darkblue 1px solid;
 }
+
+/* .LogoutBtn button{
+    position: absolute;
+    left: 7rem;
+    padding-left: 85vw;
+    position: absolute;
+    color: darkgoldenrod;
+    height: 20px;
+} */
+/* .LogoutBtn:hover{
+    background: orange;
+} */

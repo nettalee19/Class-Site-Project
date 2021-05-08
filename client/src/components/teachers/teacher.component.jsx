@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 //import axios from 'axios';
 import api from '../ApiSource/api'
 import LogoutBtn from "../header/LogoutBtn"
+import Lessons from '../Lessons/lesson.component'
+import MyLessons from '../Lessons/MyLesson.component'
 
 function Teacher() {
   const [teacher, setTeacher] = useState([])
@@ -27,6 +29,7 @@ function Teacher() {
   
     // setTeacher(data.data)
     console.log(teacher)
+    console.log(teacher._id)
   }
   const deleteTeacher = async () =>{
     //try{
@@ -96,7 +99,8 @@ function Teacher() {
 
       {/* <LogoutBtn/> */}
       <p>My classes:</p>
-      
+      {/* <Lessons/> */}
+      <MyLessons teacher={teacher} key={teacher._id} />
       
     </div>
   );

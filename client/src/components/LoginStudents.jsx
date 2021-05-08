@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react'
 
 
-
 function Header() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -19,3 +18,5 @@ function Header() {
 }
 
 export default Header;
+
+

@@ -9,21 +9,24 @@ function LogoutBtn() {
   const [token] = useState(localStorage.getItem("token"));
 
   const logoutTeacher = async () =>{
-    try{
-      const data = await api.post('/teachers/logout')
-      console.log(data.token)
+    localStorage.removeItem("token", token)
+    console.log("no one is in the system")
+    // try{
+    //   const data = await api.post('/teachers/logout')
+    //   console.log(data)
 
-    }catch(error){
-      console.log("error")
-    }
+    // }catch(error){
+    //   console.log(error)
+    // }
   }
 
   return (
-    <div className="LogoutBtn SigninLogin homeLink">
-      <input 
-      type="button" 
+    <div className="LogoutBtn">
+      <button 
       value="Log Out"
-      onClick={logoutTeacher}/>
+      onClick={logoutTeacher}>
+          Log Out
+      </button>
 
     </div>
   );

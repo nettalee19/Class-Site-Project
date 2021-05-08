@@ -33,7 +33,8 @@ function AddNewLesson() {
 		
 		const bodyParameters = {
 		   name,
-		   description
+		   description,
+		//    owner: 
 		};
 		
 		await api.post( 

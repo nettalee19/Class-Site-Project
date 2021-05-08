@@ -8,6 +8,7 @@ import Teacher from './components/teachers/teacher.component';
 import Header from './components/header/Header';
 import AddNewLesson from './components/Lessons/AddNewLesson';
 import Login from './components/LoginTeachers';
+import LoginStu from './components/LoginStudents';
 import axios from 'axios';
 import api from './components/ApiSource/api'
 
@@ -57,7 +58,7 @@ function App() {
           <Route exact path='/lessons' >
             <Lesson/>
           </Route>
-          
+
           {/* <Route exact path='/' component={Lesson} />
           <Route exact path='/' component={Teacher} /> */}
           
@@ -73,6 +74,10 @@ function App() {
           <Route exact path='/loginTeachers/me/addNewLesson'>
             <AddNewLesson/>
           </Route>
+
+          {/* <Route exact path='/'>
+            <LoginStu/>
+          </Route> */}
 
 
         </Switch>
