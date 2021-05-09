@@ -130,25 +130,31 @@ import {BrowserRouter, Switch, Route, Link} from 'react-router-dom' //Route
 
 
 const LoginForm = () => {
+  const [name, setName] = useState('')
+  const [id, setId] = useState('')
+  const [age, setAge] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
   const [worngCredentials, setWorngCredentials] = useState("");
 
-  const login = async (e) => {
+  const signUp = async (e) => {
 		e.preventDefault();
-    
 		try {
-			const { data } = await api.post("/users/login", {
-				email,
+			const { data } = await api.post("/teachers", {
+				id,
+        name,
+        age,
+        email,
 				password,
 			});
 			localStorage.setItem("token", data.token);
-      console.log(data.token)
-      console.log(data.teacher.name)
+      //console.log(data.token)
+      //console.log(data.teacher.name)
+      console.log(data)
       //history.push('/')
 		} catch (e) {
-			setWorngCredentials("User does not exist");
+			console.log("error")
 		}
 	};
 
@@ -158,11 +164,35 @@ return(
   <Grid textAlign='center' style={{ height: '87vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='black' textAlign='center'>
-         Students Login
+         Teachers Signup
       </Header>
       <Form size='large'>
         <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={(e) => setEmail(e.target.value)}/>
+          <Form.Input
+            fluid
+            icon='id badge'
+            iconPosition='left'
+            placeholder='Id'
+            type='number'
+            onChange={(e) => setId(e.target.value)}
+          />
+          <Form.Input
+            fluid
+            icon='user'
+            iconPosition='left'
+            placeholder='Name'
+            type='name'
+            onChange={(e) => setName(e.target.value)}
+          />
+          <Form.Input
+            fluid
+            icon='birthday cake'
+            iconPosition='left'
+            placeholder='Age'
+            type='number'
+            onChange={(e) => setAge(e.target.value)}
+          />
+          <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' onChange={(e) => setEmail(e.target.value)}/>
           <Form.Input
             fluid
             icon='lock'
@@ -172,14 +202,13 @@ return(
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button color='teal' fluid size='large' onClick={login}>
-            
-            <Link to="/" onClick={login}>Login</Link>
+          <Button color='teal' fluid size='large' onClick={signUp}>
+            Login
           </Button>
         </Segment>
       </Form>
       <Message>
-        New to us? <Link to="/signUpStu">Sign Up</Link>
+        Already a member? <Link to="/loginStudents">Log in</Link>
         {/* New to us? <a href='#'>Sign Up</a> */}
       </Message>
     </Grid.Column>

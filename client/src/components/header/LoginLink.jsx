@@ -1,7 +1,6 @@
 import React from 'react'
 import '../header/header.css'
-// import {  } from 'react-router';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import Login from './components/LoginTeachers';
 
 function LoginLink() {
@@ -12,7 +11,7 @@ function LoginLink() {
 
         <ul className="SigninLogin homeLink">
           
-            <Link to="/loginTeachers"><li className="headerLink">Teachers</li></Link>
+          <Link to="/loginTeachers"><li className="headerLink">Teachers</li></Link>
          
 
 

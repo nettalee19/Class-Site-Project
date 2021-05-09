@@ -1,8 +1,7 @@
 // import styled from "styled-components"
 import React, { useState, useEffect } from 'react'
 import '../header/header.css'
-// import {  } from 'react-router';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import Login from './components/LoginTeachers';
 import LoginLink from "./LoginLink"
 import Welcome from "./Welcome"
@@ -20,7 +19,7 @@ function Header() {
       
         
           
-            <Link to="/" className="homeLink">Home</Link>
+        <Link to="/" className="homeLink headerLink">Home</Link>
          
         
         {/* <ul className="homeLink">

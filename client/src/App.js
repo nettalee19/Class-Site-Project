@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import './App.css';
 // import { Route } from 'react-router';
 import { BrowserRouter, Switch,  Route } from 'react-router-dom';
-import User from './components/students/user.component';
+import Student from './components/students/user.component';
 import Lesson from './components/Lessons/lesson.component';
 import Teacher from './components/teachers/teacher.component';
 import Header from './components/header/Header';
@@ -11,6 +11,7 @@ import AddNewLesson from './components/Lessons/AddNewLesson';
 import LoginTeachers from './components/LoginTeachers';
 import LoginStu from './components/LoginStudents';
 import SignUpStudents from './components/SignUpStudents';
+import SignUpTeachers from './components/SignUpTeachers';
 
 import axios from 'axios';
 import api from './components/ApiSource/api'
@@ -91,6 +92,9 @@ function App() {
           <Route exact path='/loginTeachers/me' component={Teacher}>
             {/* <Teacher/> */}
           </Route>
+          <Route exact path="/signUpTeach" component={SignUpTeachers}>
+            {/* <LoginTeachers/> */}
+          </Route>
 
 
           <Route exact path='/loginTeachers/me/addNewLesson' component={AddNewLesson}>
@@ -103,6 +107,10 @@ function App() {
 
           <Route exact path="/signUpStu" component={SignUpStudents}>
             {/* <LoginTeachers/> */}
+          </Route>
+
+          <Route exact path='/loginStudents/me' component={Student}>
+            {/* <Teacher/> */}
           </Route>
 
         </Switch>

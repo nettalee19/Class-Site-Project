@@ -130,25 +130,31 @@ import {BrowserRouter, Switch, Route, Link} from 'react-router-dom' //Route
 
 
 const LoginForm = () => {
+  const [name, setName] = useState('')
+  const [id, setId] = useState('')
+  const [age, setAge] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
   const [worngCredentials, setWorngCredentials] = useState("");
 
-  const login = async (e) => {
+  const signUp = async (e) => {
 		e.preventDefault();
-    
 		try {
-			const { data } = await api.post("/teachers/login", {
-				email,
+			const { data } = await api.post("/users", {
+				id,
+        name,
+        age,
+        email,
 				password,
 			});
 			localStorage.setItem("token", data.token);
-      console.log(data.token)
-      console.log(data.teacher.name)
+      //console.log(data.token)
+      //console.log(data.teacher.name)
+      console.log(data)
       //history.push('/')
 		} catch (e) {
-			setWorngCredentials("User does not exist");
+			console.log("error")
 		}
 	};
 
@@ -168,7 +174,7 @@ return(
             iconPosition='left'
             placeholder='Id'
             type='number'
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setId(e.target.value)}
           />
           <Form.Input
             fluid
@@ -176,7 +182,7 @@ return(
             iconPosition='left'
             placeholder='Name'
             type='name'
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <Form.Input
             fluid
@@ -184,7 +190,7 @@ return(
             iconPosition='left'
             placeholder='Age'
             type='number'
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setAge(e.target.value)}
           />
           <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' onChange={(e) => setEmail(e.target.value)}/>
           <Form.Input
@@ -196,7 +202,7 @@ return(
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button color='teal' fluid size='large' onClick={login}>
+          <Button color='teal' fluid size='large' onClick={signUp}>
             Login
           </Button>
         </Segment>
