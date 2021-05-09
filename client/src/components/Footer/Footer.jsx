@@ -4,11 +4,11 @@ function Footer() {
     return (
 
         <div class="footer">
-            for more info:
+            
             <ul>
-                <li>connect</li>
-                <li></li>
-                <li></li>
+                <li><a href='#'><i class="fab fa-facebook"></i></a></li>
+                <li><a href='#'><i class="fab fa-linkedin"></i></a></li>
+                <li><a href='#'><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
     )

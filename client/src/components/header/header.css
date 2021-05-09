@@ -63,10 +63,42 @@
 
 
 .footer{
-    height: 5vh;
+    height: 8vh;
     background: var(--main-bg-color);
     text-align: center;
     
+}
+
+.footer ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.footer li{
+    padding: 10px;
+    font-size: 22px;
+}
+
+.footer li{
+    padding: 10px;
+    font-size: 22px;
+}
+
+.footer .fab{
+    color: var(--third-bg-color);
+}
+
+.footer .fa-facebook:hover{
+    color:rgb(29, 77, 117);
+}
+
+.footer .fa-linkedin:hover{
+    color:rgb(4, 41, 71);
+}
+
+.footer .fa-instagram:hover{
+    color: rgb(201, 27, 201);
 }
 
 /* .LogoutBtn button{
@@ -76,8 +108,16 @@
     position: absolute;
     color: darkgoldenrod;
     height: 20px;
-} */
-/* .LogoutBtn:hover{
+}  */
+/* .LogoutBtn {
+    position: absolute;
+    left: 7rem;
+    padding-left: 85vw;
+    position: absolute;
+    background: darkgoldenrod;
+    height: 20px;
+} 
+ .LogoutBtn:hover{
     background: orange;
 } */
 

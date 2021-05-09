@@ -4,6 +4,7 @@ import api from "../ApiSource/api";
 import LogoutBtn from "../header/LogoutBtn";
 import Lessons from "../Lessons/lesson.component";
 import MyLessons from "../Lessons/MyLesson.component";
+import './teacher.css'
 
 function Teacher() {
   const [teacher, setTeacher] = useState([]);
@@ -78,25 +79,34 @@ function Teacher() {
 
   return (
     <div className="TeacherMe">
-      <input type="text" value={name}  onChange={(e) => setName(e.target.value)}/>
-      <p contenteditable={isEdit}>{teacher.age}</p>
-      <p contenteditable={isEdit}>{teacher.email}</p>
-      {/* <p>{teacher.subjects}</p> */}
-      {/* Teaches: {teacher.subjects.map(s => <>{s}, </>)} */}
-      {/* &nbsp */}
-      <input type="button" value={save} onClick={editTeacher} />
+      <div className="TeacherMeInfo">
+        {/* <input type="text" value={name}  onChange={(e) => setName(e.target.value)}/> */}
+        {/* <p contenteditable={isEdit}>{teacher.name}</p> */}
+        
+        <p>{teacher.name}</p>
+        <p>{teacher.age}</p>
+        <p>{teacher.email}</p>
+        {/* <p>{teacher.subjects}</p> */}
+        {/* Teaches: {teacher.subjects.map(s => <>{s}, </>)} */}
+        {/* &nbsp */}
+        {/* <input type="button" value={save} onClick={editTeacher} /> */}
 
-      <input type="button" value="Delete" onClick={deleteTeacher} />
+        <input type="button" value="Delete" onClick={deleteTeacher} />
 
-      {/* <input 
-      type="button" 
-      value="Log out"
-      onClick={logoutTeacher}/> */}
+      </div>
+      <div className="myLesson">
 
-      {/* <LogoutBtn/> */}
-      <p>My classes:</p>
-      {/* <Lessons/> */}
-      <MyLessons teacher={teacher} key={teacher._id} />
+        {/* <input 
+        type="button" 
+        value="Log out"
+        onClick={logoutTeacher}/> */}
+
+        {/* <LogoutBtn/> */}
+        <p>My classes:</p>
+        {/* <Lessons/> */}
+        <MyLessons teacher={teacher} key={teacher._id} />
+
+      </div>
     </div>
   );
 }

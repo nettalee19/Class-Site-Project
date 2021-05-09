@@ -1,3 +1,4 @@
+// import styled from "styled-components"
 import React, { useState } from 'react'
 import '../header/header.css'
 import { Route } from 'react-router';
@@ -31,8 +32,12 @@ function Header() {
         </ul>
 
       {!token && <LoginLink/>} 
-      {token && <Welcome/>} 
-      {token &&<LogoutBtn/>} 
+      {token && <Welcome/>}
+
+      
+        {token &&<LogoutBtn/>} 
+      
+      
       </BrowserRouter> 
 
       {/* <LoginLink/> */}
@@ -41,5 +46,10 @@ function Header() {
     </div>
   );
 }
+
+// const LogOutStyle = styled.div`
+//   background: darkgoldenrod;
+//   height: 20px;
+// `
 
 export default Header;

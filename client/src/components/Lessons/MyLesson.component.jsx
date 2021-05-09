@@ -19,19 +19,19 @@ function Lesson({teacher}) {
     setLesson(data.data)
   }
 
-  const deleteLesson = async () =>{
-    //try{
-      //const data = await api.delete(`/class/:id`)
-      //localStorage.removeItem("token", data.token)
-      console.log(lesson)
+  // const deleteLesson = async () =>{
+  //   //try{
+  //     //const data = await api.delete(`/class/:id`)
+  //     //localStorage.removeItem("token", data.token)
+  //     console.log(lesson)
 
-    // }catch(error){
-    //   console.log("error")
-    // }
+  //   // }catch(error){
+  //   //   console.log("error")
+  //   // }
   
-    //setTeacher(data.data)
-    //console.log(teacher)
-  }
+  //   //setTeacher(data.data)
+  //   //console.log(teacher)
+  // }
  
   useEffect(() => {
     getLesson()
