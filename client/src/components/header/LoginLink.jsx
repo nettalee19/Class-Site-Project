@@ -8,23 +8,20 @@ function LoginLink() {
   
   return (
     <div className="LoginLink">
-      <BrowserRouter>
+      
 
         <ul className="SigninLogin homeLink">
-          <Route>
-            <Link to="/loginTeachers"><li className="headerLink">Teachers</li></Link>
-          </Route>
-
-
-          <Route>
-          <Link to="/loginStudents"><li className="headerLink">Students</li></Link>
-
-          </Route>
           
+            <Link to="/loginTeachers"><li className="headerLink">Teachers</li></Link>
+         
+
+
+          
+          <Link to="/loginStudents"><li className="headerLink">Students</li></Link>
 
 
         </ul>
-      </BrowserRouter>
+     
 
     </div>
   );

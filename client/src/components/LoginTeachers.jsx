@@ -1,7 +1,8 @@
 import React, { useEffect, useState , useRef} from 'react'
 import axios from 'axios';
-import {  useHistory } from 'react-router-dom';
-
+//import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-dom";
+//import history from "history"
 import api from '../components/ApiSource/api'
 
  
@@ -12,27 +13,9 @@ function LoginTeachers() {
   const [age, setAge] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-  
-
-  const [worngCredentials, setWorngCredentials] = useState("");
-  // const signupBtn = useRef(null);
-
   //const history = useHistory()
 
-  // const login = async(e) =>{
-  //   e.preventDefault()
-  //   try{
-  //     const data = await api.post('/teachers/login',{
-  //       email,
-  //       password
-  //     })
-  //     localStorage.setItem("token", data.teacher.token)
-  //   }catch(error){
-  //     console.log(error)
-  //   }
-
-    
-  // }
+  const [worngCredentials, setWorngCredentials] = useState("");
   
 
   const login = async (e) => {
@@ -46,7 +29,7 @@ function LoginTeachers() {
 			localStorage.setItem("token", data.token);
       console.log(data.token)
       console.log(data.teacher.name)
-      // history.push('/')
+      //history.push('/')
 		} catch (e) {
 			setWorngCredentials("User does not exist");
 		}
@@ -66,6 +49,7 @@ function LoginTeachers() {
       //console.log(data.token)
       //console.log(data.teacher.name)
       console.log(data)
+      //history.push('/')
 		} catch (e) {
 			console.log("error")
 		}

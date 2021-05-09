@@ -109,15 +109,14 @@
     color: darkgoldenrod;
     height: 20px;
 }  */
-/* .LogoutBtn {
+ .LogoutBtn {
     position: absolute;
     left: 7rem;
     padding-left: 85vw;
     position: absolute;
-    background: darkgoldenrod;
     height: 20px;
-} 
- .LogoutBtn:hover{
+}  
+ /* .LogoutBtn:hover{
     background: orange;
-} */
+}  */
 
