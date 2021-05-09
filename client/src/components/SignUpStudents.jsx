@@ -158,11 +158,35 @@ return(
   <Grid textAlign='center' style={{ height: '87vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='black' textAlign='center'>
-         Students Login
+         Students Signup
       </Header>
       <Form size='large'>
         <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={(e) => setEmail(e.target.value)}/>
+          <Form.Input
+            fluid
+            icon='id badge'
+            iconPosition='left'
+            placeholder='Id'
+            type='number'
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Form.Input
+            fluid
+            icon='user'
+            iconPosition='left'
+            placeholder='Name'
+            type='name'
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Form.Input
+            fluid
+            icon='birthday cake'
+            iconPosition='left'
+            placeholder='Age'
+            type='number'
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' onChange={(e) => setEmail(e.target.value)}/>
           <Form.Input
             fluid
             icon='lock'
@@ -173,13 +197,12 @@ return(
           />
 
           <Button color='teal' fluid size='large' onClick={login}>
-            
-            <Link to="/" onClick={login}>Login</Link>
+            Login
           </Button>
         </Segment>
       </Form>
       <Message>
-        New to us? <Link to="/signUpStu">Sign Up</Link>
+        Already a member? <Link to="/loginStudents">Log in</Link>
         {/* New to us? <a href='#'>Sign Up</a> */}
       </Message>
     </Grid.Column>

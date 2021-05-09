@@ -4,7 +4,8 @@ import axios from 'axios';
 //import { useHistory } from "react-dom";
 //import history from "history"
 import api from '../components/ApiSource/api'
-
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom' //Route
  
 
 function LoginTeachers() {
@@ -111,7 +112,10 @@ function LoginTeachers() {
 							placeholder="Password"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
-						<button onClick={login}>Login</button>
+						{/* <button onClick={login}>Login</button> */}
+            {/* <Button color='teal' fluid size='large' onClick={login}> */}
+              <Link to="/" onClick={login}>Login</Link>
+            {/* </Button> */}
 						<h4 className="wrong">{worngCredentials}</h4>
 					</form>
 				</div>
@@ -146,6 +150,7 @@ function LoginTeachers() {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<button onClick={signUp}>Sign Un</button>
+            
 						{/* <h4 className="wrong">{worngCredentials}</h4> */}
 					</form>
 				</div>

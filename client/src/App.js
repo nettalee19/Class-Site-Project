@@ -7,8 +7,11 @@ import Lesson from './components/Lessons/lesson.component';
 import Teacher from './components/teachers/teacher.component';
 import Header from './components/header/Header';
 import AddNewLesson from './components/Lessons/AddNewLesson';
+
 import LoginTeachers from './components/LoginTeachers';
 import LoginStu from './components/LoginStudents';
+import SignUpStudents from './components/SignUpStudents';
+
 import axios from 'axios';
 import api from './components/ApiSource/api'
 import EditLesson from './components/Lessons/EditLesson'
@@ -77,8 +80,8 @@ function App() {
         
         <Switch>
 
-          <Route exact path="/">
-            <Main/>
+          <Route exact path="/" component={Main}>
+        
           </Route>
 
           <Route exact path="/loginTeachers" component={LoginTeachers}>
@@ -95,6 +98,10 @@ function App() {
           </Route>
 
           <Route exact path="/loginStudents" component={LoginStu}>
+            {/* <LoginTeachers/> */}
+          </Route>
+
+          <Route exact path="/signUpStu" component={SignUpStudents}>
             {/* <LoginTeachers/> */}
           </Route>
 

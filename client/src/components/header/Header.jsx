@@ -1,5 +1,5 @@
 // import styled from "styled-components"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../header/header.css'
 // import {  } from 'react-router';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
@@ -10,16 +10,18 @@ import LogoutBtn from "./LogoutBtn"
 
 function Header() {
   const [token] = useState(localStorage.getItem("token"));
+
+  //aya@gmail.com hello123
   
   return (
     <div className="Header">
 
       
-      <BrowserRouter>
+      
         
-          <Route >
+          
             <Link to="/" className="homeLink">Home</Link>
-          </Route>
+         
         
         {/* <ul className="homeLink">
           <Route>
@@ -36,11 +38,13 @@ function Header() {
       {token && <Welcome/>}
 
       
-        {token &&<LogoutBtn/>} 
+      {/* {token &&<Link to="/loginTeachers/me">My Page</Link>}  */}
+
+      {token &&<LogoutBtn/>} 
       
       
       
-      </BrowserRouter> 
+      
 
       {/* <LoginLink/> */}
 
