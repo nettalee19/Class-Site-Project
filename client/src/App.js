@@ -72,27 +72,17 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div>
-        {/* <Route exact path='/' component={Header} /> */}
+      <div>
         <Header/>
-      
+        
         <Switch>
 
-          <Route exact path='/' component={Main}>
-            {/* <Main/> */}
-            {/* <Second/> */}
-            
+          <Route exact path="/">
+            <Main/>
           </Route>
 
-          <Route exact path='/lessons' component={Lesson}>
-            {/* <Lesson/> */}
-          </Route>
-
-          {/* <Route exact path='/' component={Lesson} />
-          <Route exact path='/' component={Teacher} /> */}
-          
-          <Route exact path='/loginTeachers' component={LoginTeachers}>
-            
+          <Route exact path="/loginTeachers" component={LoginTeachers}>
+            {/* <LoginTeachers/> */}
           </Route>
 
           <Route exact path='/loginTeachers/me' component={Teacher}>
@@ -104,25 +94,17 @@ function App() {
             {/* <AddNewLesson/> */}
           </Route>
 
-          {/* <Route exact path='/loginTeachers/me/editLesson'>
-              <EditLesson/>
-           </Route> */}
-
-          {/* <Route exact path='/'>
-            <LoginStu/>
-          </Route> */}
-
+          <Route exact path="/loginStudents" component={LoginStu}>
+            {/* <LoginTeachers/> */}
+          </Route>
 
         </Switch>
-        
-
 
         <Footer/>
-        {/* {`Hello ${user}`} */}
+
+      </div>
         
-        
-    </div>
-  </BrowserRouter>
+    </BrowserRouter>
 
   );
 }

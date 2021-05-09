@@ -1,8 +1,8 @@
 // import styled from "styled-components"
 import React, { useState } from 'react'
 import '../header/header.css'
-import { Route } from 'react-router';
-import { BrowserRouter, Link } from 'react-router-dom';
+// import {  } from 'react-router';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 // import Login from './components/LoginTeachers';
 import LoginLink from "./LoginLink"
 import Welcome from "./Welcome"
@@ -31,6 +31,7 @@ function Header() {
           <li>  </li>
         </ul>
 
+      {/* {!token && <Link to="/loginTeachers">Teachers</Link>}  */}
       {!token && <LoginLink/>} 
       {token && <Welcome/>}
 
