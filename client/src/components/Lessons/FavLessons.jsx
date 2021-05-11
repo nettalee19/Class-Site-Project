@@ -21,10 +21,11 @@ function Lesson(props) {
           <div>{lesson.name}</div>
           <div>{lesson.description}</div>
           <button onClick={() => onRemove(lesson)}>Remove</button>
+          
         </div>)
       })}
 
-      {/* <Link to="/"></Link> */}
+      
     </div>
   );
 }

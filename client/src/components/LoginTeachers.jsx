@@ -1,6 +1,6 @@
 import React, { useEffect, useState , useRef} from 'react'
 import axios from 'axios';
-//import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 //import { useHistory } from "react-dom";
 //import history from "history"
 import api from '../components/ApiSource/api'
@@ -15,10 +15,11 @@ function LoginTeachers() {
   const [age, setAge] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-  // const history = useHistory()
+  
 
   const [worngCredentials, setWorngCredentials] = useState("");
   
+  const history = useHistory()
 
   const login = async (e) => {
 		e.preventDefault();
@@ -27,9 +28,10 @@ function LoginTeachers() {
 			const { data } = await api.post("/teachers/login", {
 				email,
 				password,
-			});
+			}
+      );
+      history.push(`/`)
 			localStorage.setItem("token", data.token);
-      // history.push(`/`)
       console.log(data.token)
       console.log(data.teacher.name)
       //history.push('/')

@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react'
+import { BrowserRouter, Link } from 'react-router-dom';
 import axios from 'axios';
 import '../Lessons/lessons.css'
 
 function Lesson(props) {
   const {lesson, onAdd} = props
+  // const token = useState(localStorage.getItem("token"));
   // const [lesson, setLesson] = useState([])
 
   // const getLesson = async () =>{
@@ -29,13 +31,17 @@ function Lesson(props) {
              <div className="lessonBox">
               <h4>{l.name}</h4>
               <p>{l.description}</p>
-              <button onClick={() => onAdd(l)}>Add to favorites</button>
-
+              <button onClick={() => onAdd(l)}><i class="heart icon"></i></button>
+              
             </div> 
               {/* <input type="button">Add to Favorites</input> */}
           </>
         })}
 
+        </div>
+
+        <div>
+        <Link to="/favorites">Favorites</Link>
         </div>
       
     </div>

@@ -90,7 +90,7 @@ function Teacher() {
         {/* Teaches: {teacher.subjects.map(s => <>{s}, </>)} */}
         {/* &nbsp */}
         {/* <input type="button" value={save} onClick={editTeacher} /> */}
-
+        <input type="file"></input><br/>
         <input type="button" value="Delete" onClick={deleteTeacher} />
 
       </div>
