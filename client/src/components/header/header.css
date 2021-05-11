@@ -3,6 +3,7 @@
 :root {
     /* --main-bg-color: cornflowerblue; */
     --main-bg-color: #657dc4;
+    --hover-bg-color: #223672;
     --second-bg-color: #838ed9;
     --back-bg-color: #ece8e5;
     --third-bg-color: #f59292;
@@ -18,8 +19,10 @@
 .Header{
     display: flex;
     justify-content: center;
-    background: var(--main-bg-color);
+    background: var(--second-bg-color);
     position: relative;
+    color: black;
+    height: 6vh;
 }
 
 .Header ul{
@@ -33,17 +36,52 @@
     /* display: flex; */
 }
 
-.homeLink{
+.homeLink {
     position: absolute;
     left: 0.6rem;
     text-decoration: none;
     color: black;
+}
+.LogoutBtn {
+    /* position: absolute;
+    left: 7rem;
+    padding-left: 85vw;
+    position: absolute;
+    height: 20px; */
+    width: 5vw;
+    /* border: black 1px solid; */
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    right: 22px;
+    color: black;
+    background: none;
+    /* border: black 1px solid;
+    border-radius: 8px; */
+    border:none;
+    margin-top: 2px;
+}  
+ .LogoutBtn:hover{
+    /* background: orange; */
+    color: var(--hover-bg-color);
+} 
+
+.HeaderHome{
+    width: 10vw;
+    /* border: black 1px solid; */
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    left: 2px;
+    color: black;
+    font-size: 16px;
 }
 
 .SigninLogin{
     padding-left: 85vw;
     position: absolute;
     top: -1rem;
+    font-size: 16px;
 }
 .SigninLogin li{
 
@@ -52,13 +90,35 @@
 
 .headerLink{
     text-decoration: none;
+    color: black;
 }
 
 .headerLink:hover{
-    color: rgb(139, 0, 93);
+    color: var(--hover-bg-color);
     /* border: darkblue 1px solid; */
 }
 
+/* .StudentHeader ul{
+    
+    display: flex;
+    justify-content: center;
+} */
+
+.StudentHeader{
+    
+    display: flex;
+    justify-content: center;
+}
+.StudentHeader li{
+    list-style-type: none;
+    /* display: flex;
+    justify-content: center; */
+    color: black;
+}
+
+.StudentHeader li:hover{
+    color: var(--hover-bg-color);
+}
 
 
 
@@ -110,14 +170,5 @@
     color: darkgoldenrod;
     height: 20px;
 }  */
- .LogoutBtn {
-    position: absolute;
-    left: 7rem;
-    padding-left: 85vw;
-    position: absolute;
-    height: 20px;
-}  
- /* .LogoutBtn:hover{
-    background: orange;
-}  */
+
 

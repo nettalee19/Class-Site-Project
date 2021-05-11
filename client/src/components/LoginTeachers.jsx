@@ -5,7 +5,7 @@ import axios from 'axios';
 //import history from "history"
 import api from '../components/ApiSource/api'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom' //Route
+import {BrowserRouter, Switch, Route, Link, useHistory} from 'react-router-dom' //Route
 
 
 
@@ -15,7 +15,7 @@ function LoginTeachers() {
   const [age, setAge] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-  //const history = useHistory()
+  // const history = useHistory()
 
   const [worngCredentials, setWorngCredentials] = useState("");
   
@@ -29,6 +29,7 @@ function LoginTeachers() {
 				password,
 			});
 			localStorage.setItem("token", data.token);
+      // history.push(`/`)
       console.log(data.token)
       console.log(data.teacher.name)
       //history.push('/')
@@ -36,6 +37,12 @@ function LoginTeachers() {
 			setWorngCredentials("User does not exist");
 		}
 	};
+  
+  // useEffect(() => {
+  //   if (token)
+  //       history.push(`/`)
+
+  // }, [history])
 
   const signUp = async (e) => {
 		e.preventDefault();

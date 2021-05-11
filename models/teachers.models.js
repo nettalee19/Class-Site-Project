@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken') 
+const Lesson = require('../models/class.models')
 
 const TeachersSchema = new mongoose.Schema({
     id:{
@@ -101,12 +102,12 @@ TeachersSchema.pre('save', async function (next) {
     next()
 })
 
-// //Delete user tasks when user is removed
-// AccountsSchema.pre('remove',async function(next){
-//     const user = this
-//     await Task.deleteMany({ owner: user._id })
-//     next()
-// })
+//Delete user tasks when user is removed
+TeachersSchema.pre('remove',async function(next){
+    const teacher = this
+    await Lesson.deleteMany({ owner: teacher._id })
+    next()
+})
 
 const Teachers = mongoose.model('Teachers', TeachersSchema)
 

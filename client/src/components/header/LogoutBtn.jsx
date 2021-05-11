@@ -21,8 +21,8 @@ function LogoutBtn() {
   }
 
   return (
-    <div className="LogoutBtn">
-      <button 
+    <div>
+      <button  className="LogoutBtn"
       value="Log Out"
       onClick={logoutTeacher}>
           Log Out

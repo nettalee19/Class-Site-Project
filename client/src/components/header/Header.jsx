@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // import Login from './components/LoginTeachers';
 import LoginLink from "./LoginLink"
 import Welcome from "./Welcome"
+import MyPage from "./MyPage"
 import LogoutBtn from "./LogoutBtn"
 
 function Header() {
@@ -15,41 +16,72 @@ function Header() {
   return (
     <div className="Header">
 
-      
-      
-        
+
+
+
+      {/* <Link to="/" >Home</Link> */}
           
-        <Link to="/" className="homeLink headerLink">Home</Link>
+      {/* <Link to="/" >Home</Link> */}
+      <Link to="/" className="HeaderHome">Home</Link>
          
-        
-        {/* <ul className="homeLink">
-          <Route>
-            <Link to="/"><li className="headerLink">Home</li></Link>
-          </Route>
-        </ul> */}
-
-        <ul>
-          <li>  </li>
-        </ul>
-
-      {/* {!token && <Link to="/loginTeachers">Teachers</Link>}  */}
+      
       {!token && <LoginLink/>} 
-      {token && <Welcome/>}
+      {/* {token && <Welcome/>}
+      {token && <Welcome/>} */}
 
       
       {/* {token &&<Link to="/loginTeachers/me">My Page</Link>}  */}
 
+       
+      {/* {token &&<LogoutBtn/>} */}
+
+      {token &&<MyPage/>} 
       {token &&<LogoutBtn/>} 
       
       
-      
-      
-
-      {/* <LoginLink/> */}
+     
 
 
     </div>
   );
+  // return (
+  //   <div className="Header">
+
+      
+      
+  //       {/* <Link to="/" >Home</Link> */}
+          
+  //       <Link to="/" >Home</Link>
+         
+        
+  //       {/* <ul className="homeLink">
+  //         <Route>
+  //           <Link to="/"><li className="headerLink">Home</li></Link>
+  //         </Route>
+  //       </ul> */}
+
+  //       {/* <ul>
+  //         <li>  </li>
+  //       </ul> */}
+
+  //     {/* {!token && <Link to="/loginTeachers">Teachers</Link>}  */}
+  //     {!token && <LoginLink/>} 
+  //     {token && <Welcome/>}
+
+      
+  //     {/* {token &&<Link to="/loginTeachers/me">My Page</Link>}  */}
+
+  //     {token &&<LogoutBtn/>} 
+      
+      
+      
+      
+
+  //     {/* <LoginLink/> */}
+
+
+  //   </div>
+  // );
 }
 
 // const LogOutStyle = styled.div`

@@ -1,9 +1,10 @@
 import React, { useEffect, useState} from 'react'
-import './App.css';
+// import './App.css';
 // import { Route } from 'react-router';
 import { BrowserRouter, Switch,  Route } from 'react-router-dom';
 import Student from './components/students/user.component';
 import Lesson from './components/Lessons/lesson.component';
+import FavLessons from './components/Lessons/FavLessons';
 import Teacher from './components/teachers/teacher.component';
 import Header from './components/header/Header';
 import AddNewLesson from './components/Lessons/AddNewLesson';
@@ -25,24 +26,49 @@ import 'semantic-ui-css/semantic.min.css'
 
 
 function App() {
+  const [teacher, setTeacher] = useState(null)
   const [user, setUser] = useState(null)
+  
+  const [lesson, setLesson] = useState([])
+  const [favoriteLessons, setFavoriteLessons] = useState([])
 
   const [token] = useState(localStorage.getItem("token"));
 
-  // const getUser = async () =>{
-  //   const data = await axios.get('http://localhost:8000/users')
-  //   setUser(data.data)
+  // const getLesson = async () =>{
+  //   try{
+  //     const {data} = await api.get("/class")
+  //     setLesson(data)
+  //     console.log(data)
+
+  //   } catch(error){
+  //     console.log(error)
+  //   }
   // }
+  // getLesson()
+
   
+
   // useEffect(() => {
-  //   getUser()
-  //   console.log(user)
+  //   getLesson()
   // }, [])
-  
+
+
   useEffect(() => {
-    const getUser = async () =>{
+    const getTeacher = async () =>{
       try{
         const {data} = await api("/teachers/me",{
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        setTeacher(data)
+        console.log(data)
+      } catch(error){
+        console.log("error")
+      }
+    }
+
+    const getUser = async () =>{
+      try{
+        const {data} = await api("/users/me",{
           headers: { Authorization: `Bearer ${token}` },
         })
         setUser(data)
@@ -51,11 +77,52 @@ function App() {
         console.log("error")
       }
     }
+
+    const getLesson = async () =>{
+      const data = await axios.get('http://localhost:8000/class')
+      console.log(data)
+      //setUser(data.data)
+      setLesson(data.data)
+    }
+
+
+    getLesson()
+
+
     if(token){
+      getTeacher()
       getUser()
       // console.log(token)
     }
   }, [])
+
+  const onAdd =(lesson) =>{
+    const exist = favoriteLessons.find(x => x._id === lesson._id)
+    if(!exist){
+      setFavoriteLessons([...favoriteLessons, {...lesson}])
+      // setFavoriteLessons([...favoriteLessons, {...lesson}])
+    }
+    console.log(lesson._id)
+    console.log(favoriteLessons)
+  }
+  const onRemove =(lesson) =>{
+    const exist = favoriteLessons.find(x => x._id === lesson._id)
+    if(exist){
+      setFavoriteLessons(favoriteLessons.filter((x) => x._id !== lesson._id))
+    }
+  }
+
+  // const getTeacher = async () =>{
+  //   const data = await axios.get('http://localhost:8000/users')
+  //   setUser(data.data)
+  // }
+  
+  // useEffect(() => {
+  //   getUser()
+  //   console.log(user)
+  // }, [])
+
+  
 
   // const getUser = async () =>{
   //   try{
@@ -112,6 +179,33 @@ function App() {
           <Route exact path='/loginStudents/me' component={Student}>
             {/* <Teacher/> */}
           </Route>
+
+          <Route exact path='/lessons'>
+            <Lesson lesson={lesson} onAdd={onAdd}/>
+            <FavLessons favoriteLessons={favoriteLessons} onAdd={onAdd} onRemove={onRemove}/>
+          </Route>
+            
+
+          <Route path="/favorites" exact >
+            <FavLessons favoriteLessons={favoriteLessons} onAdd={onAdd} onRemove={onRemove}/>
+
+            {/* <div className="grid">
+            {setSaved.length
+              ? saved.map((item, index) => {
+                // return <Card item={item} key={index} onClick={() => {
+                  return <Lesson item={item} key={index} onClick={() => {
+                    const newSaved = saved.filter(i => item !== i);
+                    setSaved(newSaved);
+                  // }} onView={() => {
+                    // setCurrentData(item);
+                    //setRedirect('/');
+                  }} />;
+                })
+              : null}
+            </div> */}
+
+          </Route>
+
 
         </Switch>
 
