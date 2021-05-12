@@ -77,6 +77,23 @@ function Teacher() {
     getTeacher();
   }, []);
 
+
+  const [photo, setPhoto] = useState('')
+  // const photoSelect = (event) =>{
+  //   setSelected(event)
+  // }
+  const photoUpload = async (e) =>{
+    e.preventDefault();
+    try{
+      const data = await api.post('/me/avatar')
+      setPhoto(data)
+      console.log(data)
+
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   return (
     <div className="TeacherMe">
       <div className="TeacherMeInfo">
@@ -90,8 +107,9 @@ function Teacher() {
         {/* Teaches: {teacher.subjects.map(s => <>{s}, </>)} */}
         {/* &nbsp */}
         {/* <input type="button" value={save} onClick={editTeacher} /> */}
-        <input type="file"></input><br/>
-        <input type="button" value="Delete" onClick={deleteTeacher} />
+        <input type="button" value="Delete" onClick={deleteTeacher} /><br/>
+        
+        <input type="file" onChange={photoUpload}></input>
 
       </div>
       <div className="myLesson">

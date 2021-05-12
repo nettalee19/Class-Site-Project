@@ -19,7 +19,7 @@ function LoginTeachers() {
 
   const [worngCredentials, setWorngCredentials] = useState("");
   
-  const history = useHistory()
+  //const history = useHistory()
 
   const login = async (e) => {
 		e.preventDefault();
@@ -30,14 +30,18 @@ function LoginTeachers() {
 				password,
 			}
       );
-      history.push(`/`)
+      //history.push(`/`)
 			localStorage.setItem("token", data.token);
       console.log(data.token)
-      console.log(data.teacher.name)
+      setName(data.teacher.name)
+      
       //history.push('/')
 		} catch (e) {
 			setWorngCredentials("User does not exist");
-		}
+		}finally{
+      window.location.reload()
+    }
+    
 	};
   
   // useEffect(() => {

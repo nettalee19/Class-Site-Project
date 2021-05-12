@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 // import './App.css';
 // import { Route } from 'react-router';
-import { BrowserRouter, Switch,  Route } from 'react-router-dom';
+import { BrowserRouter, Switch,  Route, Redirect } from 'react-router-dom';
 import Student from './components/students/user.component';
 import Lesson from './components/Lessons/lesson.component';
 import FavLessons from './components/Lessons/FavLessons';
@@ -64,6 +64,8 @@ function App() {
       } catch(error){
         console.log("error")
       }
+
+      
     }
 
     const getUser = async () =>{
@@ -88,13 +90,13 @@ function App() {
 
     getLesson()
 
-
+    console.log("Token from useeffect", token)
     if(token){
       getTeacher()
       getUser()
       // console.log(token)
     }
-  }, [])
+  }, [token])
 
   const onAdd =(lesson) =>{
     const exist = favoriteLessons.find(x => x._id === lesson._id)
@@ -152,9 +154,16 @@ function App() {
         
           </Route>
 
-          <Route exact path="/loginTeachers" component={LoginTeachers}>
-            {/* <LoginTeachers/> */}
-          </Route>
+          {/* <Route exact path="/loginTeachers" component={LoginTeachers}> */}
+          <Route exact path="/loginTeachers" 
+            render={() =>
+            
+              token ? <Redirect to="/" /> : <LoginTeachers/>
+            }
+            
+           /> 
+            
+          
 
           <Route exact path='/loginTeachers/me' component={Teacher}>
             {/* <Teacher/> */}
