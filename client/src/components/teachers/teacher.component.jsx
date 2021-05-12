@@ -78,28 +78,35 @@ function Teacher() {
   }, []);
 
 
-  const [photo, setPhoto] = useState('')
-  // const photoSelect = (event) =>{
-  //   setSelected(event)
-  // }
+  const [photo, setPhoto] = useState(null)
+  
   const photoUpload = async (e) =>{
-    e.preventDefault();
-    try{
-      const data = await api.post('/me/avatar')
-      setPhoto(data)
-      console.log(data)
-
-    }catch(error){
-      console.log(error)
-    }
+    console.log(e.target.files[0])
+    setPhoto(e.target.files[0])
   }
+
+  const upload = async() =>{
+    await api.post('/upload', {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    
+  }
+
+  // const getTeacher = async () => {
+  //   const data = await api.get("/teachers/me", {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   });
+
+  //   setTeacher(data.data);
+  //   console.log(teacher);
+  // };
 
   return (
     <div className="TeacherMe">
       <div className="TeacherMeInfo">
         {/* <input type="text" value={name}  onChange={(e) => setName(e.target.value)}/> */}
         {/* <p contenteditable={isEdit}>{teacher.name}</p> */}
-        
+        <img src={`data:image/jpg;base64,${teacher.avatar}`}></img>
         <p>{teacher.name}</p>
         <p>{teacher.age}</p>
         <p>{teacher.email}</p>
@@ -110,6 +117,7 @@ function Teacher() {
         <input type="button" value="Delete" onClick={deleteTeacher} /><br/>
         
         <input type="file" onChange={photoUpload}></input>
+        <input type="button" onChange={upload}></input>
 
       </div>
       <div className="myLesson">

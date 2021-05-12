@@ -34,25 +34,6 @@ function App() {
 
   const [token] = useState(localStorage.getItem("token"));
 
-  // const getLesson = async () =>{
-  //   try{
-  //     const {data} = await api.get("/class")
-  //     setLesson(data)
-  //     console.log(data)
-
-  //   } catch(error){
-  //     console.log(error)
-  //   }
-  // }
-  // getLesson()
-
-  
-
-  // useEffect(() => {
-  //   getLesson()
-  // }, [])
-
-
   useEffect(() => {
     const getTeacher = async () =>{
       try{
@@ -102,7 +83,7 @@ function App() {
     const exist = favoriteLessons.find(x => x._id === lesson._id)
     if(!exist){
       setFavoriteLessons([...favoriteLessons, {...lesson}])
-      // setFavoriteLessons([...favoriteLessons, {...lesson}])
+      
     }
     console.log(lesson._id)
     console.log(favoriteLessons)
@@ -113,34 +94,6 @@ function App() {
       setFavoriteLessons(favoriteLessons.filter((x) => x._id !== lesson._id))
     }
   }
-
-  // const getTeacher = async () =>{
-  //   const data = await axios.get('http://localhost:8000/users')
-  //   setUser(data.data)
-  // }
-  
-  // useEffect(() => {
-  //   getUser()
-  //   console.log(user)
-  // }, [])
-
-  
-
-  // const getUser = async () =>{
-  //   try{
-  //     const {data} = await api("/teachers/me",{
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     })
-  //     setUser(data)
-  //     console.log(data)
-  //   } catch(error){
-  //     console.log("error")
-  //   }
-  // }
-  // if(token){
-  //   getUser()
-  //   // console.log(token)
-  // }
 
 
   return (

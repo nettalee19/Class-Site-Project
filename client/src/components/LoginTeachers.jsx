@@ -44,11 +44,6 @@ function LoginTeachers() {
     
 	};
   
-  // useEffect(() => {
-  //   if (token)
-  //       history.push(`/`)
-
-  // }, [history])
 
   const signUp = async (e) => {
 		e.preventDefault();
@@ -70,33 +65,7 @@ function LoginTeachers() {
 		}
 	};
 
-    // const sumbitHandler= (e)=>{
-    //   e.preventDefault()
-    // }
-    
-    // const clickHandler = ()=>{
-    //   login();
-    // }
-
-  // const [user, setUser] = useState(null)
-
-  // const sumbitHandler = (e) =>{
-  //   e.preventDefault()
-  //   try{
-
-  //   }catch(error){
-  //     console.log("wrong")
-  //   }
-  // }
-
-  // const getUser = async () =>{
-  //   const data = await axios.get('http://localhost:8000/users')
-  //   setUser(data.data)
-  // }
-
-  // useEffect(() => {
-  //   getUser()
-  // }, [])
+ 
 
 
   return (
