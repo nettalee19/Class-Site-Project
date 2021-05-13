@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import {useForm} from "react-hook-form"
 //import axios from 'axios';
 import api from "../ApiSource/api";
-import LogoutBtn from "../header/LogoutBtn";
-import Lessons from "../Lessons/lesson.component";
+// import LogoutBtn from "../header/LogoutBtn";
+// import Lessons from "../Lessons/lesson.component";
 import MyLessons from "../Lessons/MyLesson.component";
 import './teacher.css'
 
@@ -78,19 +79,101 @@ function Teacher() {
   }, []);
 
 
-  const [photo, setPhoto] = useState(null)
+  // const [photoSelected, setPhotoSelected] = useState()
+  // const [photoPicked, setPhotoPicked] = useState()
+
+  // const changeHandler = (event) => {
+	// 	setPhotoSelected(event.target.files[0]);
+	// 	setIsSelected(true);
+	// };
+
+  // const handleSubmission = () => {
+	// 	const formData = new FormData();
+
+	// 	formData.append('avatar', photoSelected);
+
+	// 	fetch(
+	// 		'https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>',
+	// 		{
+	// 			method: 'POST',
+	// 			body: formData,
+	// 		}
+	// 	)
+	// 		.then((response) => response.json())
+	// 		.then((result) => {
+	// 			console.log('Success:', result);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.error('Error:', error);
+	// 		});
+	// };
+	// };
+
+	
+
   
-  const photoUpload = async (e) =>{
+  // const photoUpload = async (e) =>{
+  //   console.log(e.target.files[0])
+  //   setPhoto(e.target.files[0])
+  // }
+  
+  // const upload = async() =>{
+  //   await api.post('/upload', {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   })
+    
+  // }
+
+
+ 
+
+
+
+  const [photo, setPhoto] = useState()
+  const selectPhoto = (e) =>{
     console.log(e.target.files[0])
     setPhoto(e.target.files[0])
   }
 
-  const upload = async() =>{
-    await api.post('/upload', {
+  const submitPhoto = async() =>{
+    const formData = new FormData();
+
+    formData.append(
+      "myFile",
+      photo
+    );
+
+    await api.post('/teachers/me/avatar', formData)
+
+    // await api.post('/me/avatar', {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // })
+  }
+
+
+
+
+
+
+
+  
+  const deletePhoto = async() =>{
+    console.log("this is delete")
+    const data = await api.delete("/teachers/me/avatar", {
       headers: { Authorization: `Bearer ${token}` },
-    })
+    });
+
+    //setPhoto(null);
+    //console.log(photo);
     
   }
+  // useEffect(() => {
+    
+  // }, []);
+
+
+
+
 
   // const getTeacher = async () => {
   //   const data = await api.get("/teachers/me", {
@@ -104,20 +187,24 @@ function Teacher() {
   return (
     <div className="TeacherMe">
       <div className="TeacherMeInfo">
-        {/* <input type="text" value={name}  onChange={(e) => setName(e.target.value)}/> */}
-        {/* <p contenteditable={isEdit}>{teacher.name}</p> */}
-        <img src={`data:image/jpg;base64,${teacher.avatar}`}></img>
+        
+        {teacher.avatar? <img src={`data:image/jpg;base64,${teacher.avatar}`}/> : null }
+        {teacher.avatar? <input type="button" onClick={deletePhoto} value="Delete Photo"/> : null }
+        
         <p>{teacher.name}</p>
         <p>{teacher.age}</p>
         <p>{teacher.email}</p>
-        {/* <p>{teacher.subjects}</p> */}
-        {/* Teaches: {teacher.subjects.map(s => <>{s}, </>)} */}
-        {/* &nbsp */}
-        {/* <input type="button" value={save} onClick={editTeacher} /> */}
-        <input type="button" value="Delete" onClick={deleteTeacher} /><br/>
+        <p>{teacher.subjects}</p>
         
-        <input type="file" onChange={photoUpload}></input>
-        <input type="button" onChange={upload}></input>
+        {/* &nbsp */}
+        
+        
+        
+          <input type="file" name="file" onChange={selectPhoto}></input>
+          <input type="button" onClick={submitPhoto} value="Upload"></input><br/>
+
+        <input type="button" value="Delete User" onClick={deleteTeacher} /><br/>
+        
 
       </div>
       <div className="myLesson">
@@ -125,10 +212,10 @@ function Teacher() {
         {/* <input 
         type="button" 
         value="Log out"
-        onClick={logoutTeacher}/> */}
+      onClick={logoutTeacher}/> */}
 
         {/* <LogoutBtn/> */}
-        <p>My classes:</p>
+        <h2>My classes:</h2>
         {/* <Lessons/> */}
         <MyLessons teacher={teacher} key={teacher._id} />
 
@@ -138,3 +225,34 @@ function Teacher() {
 }
 
 export default Teacher;
+
+
+
+// const [selectedFile, setSelectedFile] = useState();
+// //const [isFilePicked, setIsFilePicked] = useState(false);
+
+// const changeHandler = (event) => {
+//   setSelectedFile(event.target.files[0]);
+//   //setIsFilePicked(true);
+// };
+
+// const handleSubmission = () => {
+//   const formData = new FormData();
+
+//   formData.append('avatar', selectedFile);
+
+//   fetch(
+//     'http://localhost:8000/teachers/me/avatar',
+//     {
+//       method: 'POST',
+//       body: formData,
+//     }
+//   )
+//     .then((response) => response.json())
+//     .then((result) => {
+//       console.log('Success:', result);
+//     })
+//     .catch((error) => {
+//       console.error('Error:', error);
+//     });
+// };

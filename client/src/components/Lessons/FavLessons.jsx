@@ -1,11 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import { Route } from 'react-router';
-import { BrowserRouter, Link } from 'react-router-dom';
-import axios from 'axios';
 import '../Lessons/lessons.css'
-import api from '../ApiSource/api'
-import DeleteBtn from './DeleteBtn'
-import EditLesson from '../Lessons/EditLesson'
+
 
 function Lesson(props) {
   const {favoriteLessons, onRemove} = props
@@ -17,9 +12,9 @@ function Lesson(props) {
       
       {favoriteLessons.map((lesson) =>{
         
-        return (<div>
-          <div>{lesson.name}</div>
-          <div>{lesson.description}</div>
+        return (<div  className="FavLessonBox">
+          <h4>{lesson.name}</h4>
+          <p>{lesson.description}</p>
           <button onClick={() => onRemove(lesson)}>Remove</button>
           
         </div>)

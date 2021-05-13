@@ -125,7 +125,7 @@
 import React, { useState } from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import api from '../components/ApiSource/api'
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom' //Route
+import { Link} from 'react-router-dom' //Route
 
 
 

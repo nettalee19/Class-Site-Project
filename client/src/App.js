@@ -138,8 +138,10 @@ function App() {
             {/* <LoginTeachers/> */}
           </Route>
 
-          <Route exact path='/loginStudents/me' component={Student}>
+          <Route exact path='/loginStudents/me' >
             {/* <Teacher/> */}
+            <Student/>
+            <FavLessons favoriteLessons={favoriteLessons} onAdd={onAdd} onRemove={onRemove}/>
           </Route>
 
           <Route exact path='/lessons'>

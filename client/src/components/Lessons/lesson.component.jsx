@@ -41,7 +41,7 @@ function Lesson(props) {
         </div>
 
         <div>
-        <Link to="/favorites">Favorites</Link>
+          <Link to="/favorites">Favorites</Link>
         </div>
       
     </div>

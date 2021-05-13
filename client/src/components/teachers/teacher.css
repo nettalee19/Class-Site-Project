@@ -1,8 +1,18 @@
+.TeacherMe{
+    /* border: black 1px solid; */
+    width: 90vw;
+    display: flex;
+    padding-left: 3rem;
+    text-align: center;
+}
+
 .TeacherMeInfo{
-    /* text-align: center; */
-    padding-left: 12rem;
+    padding-top: 3rem;
+    text-align: center;
+    /* padding-left: 22rem; */
 }
 .myLesson{
     /* text-align: center; */
-    padding-left: 12rem;
+    padding-left: 2rem;
+    padding-top: 3rem;
 }

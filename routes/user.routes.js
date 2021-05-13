@@ -5,6 +5,9 @@ const auth = require('../middleware/authStudent')
 
 const Users = require('../models/users.models');
 
+const multer = require('multer')
+const sharp = require('sharp')
+
 router.get('/', (req,res) =>{
     userController.getUsers(req,res)
 })
@@ -60,7 +63,7 @@ router.post('/logoutAll', auth, async (req,res) =>{
     }
 })
 
-// router.post('/addToFav', auth, async (req,res) =>{
+// router.put('/addToFav', auth, async (req,res) =>{
 //     try{
 //         req.student.tokens = []
 //         await req.student.save()
@@ -70,6 +73,51 @@ router.post('/logoutAll', auth, async (req,res) =>{
 //         res.status(500).send()
 //     }
 // })
+
+
+const upload = multer({
+    //dest: 'avatars',
+    limits: {
+        fileSize: 1000000
+    },
+    fileFilter(req, file, cb){
+        if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+            return cb(new Error('Please upload a JPG/JPEG/PNG document'))
+        }
+        cb(undefined, true)
+    }
+})
+
+router.post('/me/avatar', auth, upload.single('avatar'), async (req,res) =>{
+    const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250}).png().toBuffer()
+    req.user.avatar = buffer
+    //req.user.avatar = req.file.avatar
+    await req.user.save()
+    res.send()
+}, (error, req, res, next) =>{
+    res.status(400).send({error: error.message})
+})
+
+router.delete('/me/avatar', auth, async (req,res) =>{
+    req.user.avatar = undefined
+    await req.user.save()
+    res.send()
+})
+
+router.get('/:id/avatar', async (req,res) =>{
+    try{
+        const user= await Users.findById(req.params.id)
+
+        if(!user || !user.avatar){
+            throw new Error()
+        }
+
+        res.set('Content-Type','image/jpg')
+        res.send(user.avatar)
+    }catch(e){
+        res.status(404).send()
+    }
+})
 
 
 

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Link } from 'react-router-dom';
 //import axios from 'axios';
 import api from "../ApiSource/api";
 import LogoutBtn from "../header/LogoutBtn";
 import Lessons from "../Lessons/lesson.component";
 import MyLessons from "../Lessons/MyLesson.component";
+import FavLessons from '../Lessons/FavLessons';
 // import './teacher.css'
 
 function Teacher() {
@@ -63,6 +65,7 @@ function Teacher() {
 
   return (
     <div className="TeacherMe">
+     
       <div className="TeacherMeInfo">
         
         <p>{student.name}</p>
@@ -72,13 +75,17 @@ function Teacher() {
 
         <input type="button" value="Delete" onClick={deleteStudent} />
 
+        <p>My Favorite classes:</p>
       </div>
       <div className="myLesson">
 
         
-        <p>My Favorite classes:</p>
         
         {/* <MyLessons student={student} key={student._id} /> */}
+        <div>
+          {/* <Link to="/favorites">Favorites</Link> */}
+          {/* <FavLessons/> */}
+        </div>
 
       </div>
     </div>
