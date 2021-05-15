@@ -139,12 +139,12 @@ function Teacher() {
     const formData = new FormData();
 
     formData.append(
-      "myFile",
+      "avatar",
       photo
     );
-
+      
     await api.post('/teachers/me/avatar', formData)
-
+      
     // await api.post('/me/avatar', {
     //   headers: { Authorization: `Bearer ${token}` },
     // })

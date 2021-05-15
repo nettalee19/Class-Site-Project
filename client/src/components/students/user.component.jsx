@@ -71,6 +71,7 @@ function Teacher() {
         <p>{student.name}</p>
         <p>{student.age}</p>
         <p>{student.email}</p>
+        {/* <p>{student.favorites}</p> */}
     
 
         <input type="button" value="Delete" onClick={deleteStudent} />

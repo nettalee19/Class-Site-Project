@@ -35,6 +35,9 @@ const UsersSchema = new mongoose.Schema({
     }],
     avatar:{
         type: Buffer
+    },
+    favorites:{
+        type: Array
     }
 })
 
