@@ -27,7 +27,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const [teacher, setTeacher] = useState(null)
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState([])
   
   const [lesson, setLesson] = useState([])
   const [favoriteLessons, setFavoriteLessons] = useState([])
@@ -54,8 +54,8 @@ function App() {
         const {data} = await api("/users/me",{
           headers: { Authorization: `Bearer ${token}` },
         })
-        setUser(data)
-        console.log(data)
+        setUser(data) 
+        
       } catch(error){
         console.log("error")
       }
@@ -79,20 +79,47 @@ function App() {
     }
   }, [token])
 
-  const onAdd =(lesson) =>{
+  const onAdd = async(lesson) => {
+    console.log(lesson)
+
+    const config = {
+			headers: { Authorization: `Bearer ${token}` }
+		};
+		const bodyParameters = {
+		   title:lesson.name,
+		   description:lesson.description
+		};
+
     const exist = favoriteLessons.find(x => x._id === lesson._id)
-    if(!exist){
-      setFavoriteLessons([...favoriteLessons, {...lesson}])
-      
+		if(!exist){
+      await api.post( 
+        '/users/me/addtofav',
+        bodyParameters,
+        config
+      ).then(console.log).catch(console.log());
+
     }
-    console.log(lesson._id)
-    console.log(favoriteLessons)
+
+
+    // const exist = favoriteLessons.find(x => x._id === lesson._id)
+    // if(!exist){
+    //   setFavoriteLessons([...favoriteLessons, {...lesson}])
+      // await api.post("/users/me/addtofav", {
+      //   headers: { Authorization: `Bearer ${token}` },
+      // });
+    // }
+    // console.log(lesson._id)
+    // console.log(favoriteLessons)
   }
-  const onRemove =(lesson) =>{
+  const onRemove =async(lesson) =>{
     const exist = favoriteLessons.find(x => x._id === lesson._id)
     if(exist){
       setFavoriteLessons(favoriteLessons.filter((x) => x._id !== lesson._id))
     }
+
+    // await api.delete("/users/me/removefav", {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // });
   }
 
 

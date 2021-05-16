@@ -132,7 +132,7 @@ router.get("/:id/avatar", async (req, res) => {
   }
 });
 
-router.put("/me/addtofav", auth, async (req, res) => {
+router.post("/me/addtofav", auth, async (req, res) => {
   //add auth
   const student = req.student;
   const { title, description } = req.body;
@@ -140,6 +140,10 @@ router.put("/me/addtofav", auth, async (req, res) => {
   await req.student.save();
   res.send(req.student);
 });
+router.get("/me/fav",auth,async (req,res)=>{
+  console.log(req.student.favorites)
+  res.send(req.student.favorites)
+})
 
 router.delete("/me/removefav", auth, async (req, res) => {
   //add auth
@@ -147,9 +151,9 @@ router.delete("/me/removefav", auth, async (req, res) => {
   const { title } = req.body;
   const removeIndex = student.favorites.findIndex((el) => 
      (el.title === title)
-  );
-//   console.log(removeIndex)
-  student.favorites.splice(removeIndex, 1);
+     );
+     //   console.log(removeIndex)
+     (removeIndex === -1) ? res.send("User not found") : student.favorites.splice(removeIndex, 1);
   await req.student.save();
   res.send(req.student);
 });

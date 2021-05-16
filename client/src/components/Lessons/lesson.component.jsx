@@ -29,9 +29,9 @@ function Lesson(props) {
         {lesson.map(l =>{
             return <>
              <div className="lessonBox">
+              <button onClick={() => onAdd(l)}><i class="heart icon"></i></button>
               <h4>{l.name}</h4>
               <p>{l.description}</p>
-              <button onClick={() => onAdd(l)}><i class="heart icon"></i></button>
               
             </div> 
               {/* <input type="button">Add to Favorites</input> */}

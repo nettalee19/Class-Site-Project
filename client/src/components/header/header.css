@@ -91,6 +91,7 @@
 .headerLink{
     text-decoration: none;
     color: black;
+    transition: 0.5s;
 }
 
 .headerLink:hover{
@@ -114,6 +115,7 @@
     /* display: flex;
     justify-content: center; */
     color: black;
+    transition: 0.5s;
 }
 
 .StudentHeader li:hover{
@@ -134,6 +136,7 @@
     list-style-type: none;
     display: flex;
     justify-content: center;
+    transition: 0.5s;
 }
 
 .footer li{
@@ -144,10 +147,12 @@
 .footer li{
     padding: 10px;
     font-size: 22px;
+    transition: 0.5s;
 }
 
 .footer .fab{
     color: var(--third-bg-color);
+    transition: 0.5s;
 }
 
 .footer .fa-facebook:hover{
