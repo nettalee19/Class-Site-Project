@@ -112,10 +112,29 @@ function App() {
     // console.log(favoriteLessons)
   }
   const onRemove =async(lesson) =>{
-    const exist = favoriteLessons.find(x => x._id === lesson._id)
-    if(exist){
-      setFavoriteLessons(favoriteLessons.filter((x) => x._id !== lesson._id))
-    }
+    const config = {
+			headers: { Authorization: `Bearer ${token}` }
+		};
+		const bodyParameters = {
+		   title:lesson.name,
+		   description:lesson.description
+		};
+
+    // const exist = favoriteLessons.find(x => x._id === lesson._id)
+		// if(!exist){
+      await api.delete( 
+        '/users/me/removefav',
+        bodyParameters,
+        config
+      ).then(console.log).catch(console.log());
+
+    //}
+    
+    
+    // const exist = favoriteLessons.find(x => x._id === lesson._id)
+    // if(exist){
+    //   setFavoriteLessons(favoriteLessons.filter((x) => x._id !== lesson._id))
+    // }
 
     // await api.delete("/users/me/removefav", {
     //   headers: { Authorization: `Bearer ${token}` },

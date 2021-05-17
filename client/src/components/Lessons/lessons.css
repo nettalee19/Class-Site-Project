@@ -37,8 +37,12 @@
 }
 
 .lessonBox button{
-  color: red;
+  color:seashell;
+  color:whitesmoke;
   border: none;
+
+  /* color: red;
+  border: none; */
   background: none;
   text-align:right;
   position: absolute;
@@ -46,7 +50,8 @@
   transition: 0.5s;
 }
 .lessonBox button:hover{
-  color: rgb(211, 31, 85);
+  color: red;
+  /* color: rgb(211, 31, 85); */
 }
 
 .FavLesson{
@@ -60,6 +65,7 @@
     border: grey 0.5px solid;
     padding: 1rem;
     margin: 1rem;
+    position: relative;
 }
 .FavLessonBox:hover{
   box-shadow: 1px 1px 2px grey, 0 0 5px grey, 0 0 1px lightblue;
@@ -69,4 +75,16 @@
 .form-container{
   text-align: center;
   display: flex;
+}
+
+.FavLessonBox button{
+  border: none;
+  background: none;
+  text-align:right;
+  position: absolute;
+  right: 10px;
+  transition: 0.5s;
+}
+.FavLessonBox button:hover{
+  color:red;
 }
