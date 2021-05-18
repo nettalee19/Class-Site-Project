@@ -38,6 +38,10 @@ const UsersSchema = new mongoose.Schema({
     },
     favorites:{
         type: Array
+    },
+    isTeacher:{
+        type: Boolean,
+        default: false
     }
 })
 

@@ -90,7 +90,7 @@ function App() {
 		   description:lesson.description
 		};
 
-    const exist = favoriteLessons.find(x => x._id === lesson._id)
+    const exist = favoriteLessons.find(x => x._id === lesson._id)  
 		if(!exist){
       await api.post( 
         '/users/me/addtofav',
@@ -111,22 +111,35 @@ function App() {
     // console.log(lesson._id)
     // console.log(favoriteLessons)
   }
-  const onRemove =async(lesson) =>{
+  const onRemove = async (title) =>{
     const config = {
 			headers: { Authorization: `Bearer ${token}` }
 		};
 		const bodyParameters = {
-		   title:lesson.name,
-		   description:lesson.description
+		   title
 		};
+    await api.delete( 
+      'users/me/removefav',
+      bodyParameters,
+      config
+    ).then(console.log).catch(console.log());
+    // const exist = favoriteLessons.find(x => x._id === lesson._id)  
+		// if(!exist){
+    // const config = {
+		// 	headers: { Authorization: `Bearer ${token}` }
+		// };
+		// const bodyParameters = {
+		//    title:lesson.name,
+		//    description:lesson.description
+		// };
 
     // const exist = favoriteLessons.find(x => x._id === lesson._id)
 		// if(!exist){
-      await api.delete( 
-        '/users/me/removefav',
-        bodyParameters,
-        config
-      ).then(console.log).catch(console.log());
+      // await api.delete( 
+      //   '/users/me/removefav',
+      //   bodyParameters,
+      //   config
+      // ).then(console.log).catch(console.log());
 
     //}
     
@@ -187,7 +200,7 @@ function App() {
           <Route exact path='/loginStudents/me' >
             {/* <Teacher/> */}
             <Student/>
-            <FavLessons favoriteLessons={favoriteLessons} onAdd={onAdd} onRemove={onRemove}/>
+            <FavLessons favoriteLessons={favoriteLessons} onAdd={onAdd} onRemove={onRemove} lesson={lesson}/>
           </Route>
 
           <Route exact path='/lessons'>

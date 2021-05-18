@@ -40,6 +40,10 @@ const TeachersSchema = new mongoose.Schema({
     }],
     avatar:{
         type: Buffer
+    },
+    isTeacher:{
+        type: Boolean,
+        default: true
     }
 })
 

@@ -7,9 +7,26 @@ import LoginLink from "./LoginLink"
 import Welcome from "./Welcome"
 import MyPage from "./MyPage"
 import LogoutBtn from "./LogoutBtn"
+import api from '../ApiSource/api'
 
 function Header() {
   const [token] = useState(localStorage.getItem("token"));
+  const [teacher, setTeacher] = useState(null)
+
+  const getTeacher = async () =>{
+    try{
+      const {data} = await api("/teachers/me",{
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      setTeacher(data)
+      console.log(data)
+    } catch(error){
+      console.log("error")
+    }
+
+    
+  }
+  getTeacher()
 
   //aya@gmail.com hello123
   
@@ -35,7 +52,10 @@ function Header() {
        
       {/* {token &&<LogoutBtn/>} */}
 
-      {token &&<MyPage/>} 
+      {/* {token && (teacher.isTeacher == false) &&<MyPage/>}  */}
+      {token && <MyPage/>} 
+
+
       {token &&<LogoutBtn/>} 
       
       

@@ -136,6 +136,10 @@ router.post("/me/addtofav", auth, async (req, res) => {
   //add auth
   const student = req.student;
   const { title, description } = req.body;
+  if(student.favorites.find(el => el.title == title)) {
+    res.send("already exists")
+    return
+  }
   student.favorites.push({ title, description });
   await req.student.save();
   res.send(req.student);
@@ -145,8 +149,10 @@ router.get("/me/fav",auth,async (req,res)=>{
   res.send(req.student.favorites)
 })
 
-router.delete("/me/removefav", auth, async (req, res) => {
+router.delete("/me/removefav",auth, async (req, res) => {
   //add auth
+  console.log("test")
+  console.log(req.student)
   const student = req.student;
   const { title } = req.body;
   const removeIndex = student.favorites.findIndex((el) => 
