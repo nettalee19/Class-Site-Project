@@ -1,30 +1,51 @@
 // import styled from "styled-components"
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import '../header/header.css'
 import { Link } from 'react-router-dom';
 import LoginLink from "./LoginLink"
-import MyPage from "./MyPage"
+import MyPageStu from "./MyPage"
+import MyPageTeacher from "./MyPageTeacher"
+
+
 import LogoutBtn from "./LogoutBtn"
 import api from '../ApiSource/api'
 
-function Header() {
+function Header({isTeacher}) {
   const [token] = useState(localStorage.getItem("token"));
-  const [teacher, setTeacher] = useState(null)
+  const [teacher, setTeacher] = useState([])
 
-  const getTeacher = async () =>{
-    try{
-      const {data} = await api("/teachers/me",{
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      setTeacher(data)
-      console.log(data)
-    } catch(error){
-      console.log("error")
-    }
+  useEffect(()=>{
+  //   const fetchData  = (async()=>{
+  //         try{
+  //     const {data} = await api("/teachers/me",{
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     })
+  //     setTeacher(data,"sasa")
+  //     console.log(teacher)
+  //   } catch(error){
+  //     console.log("error")
+  //   }
+  //   console.log(teacher.isTeacher)
+  // })
+  // console.log("dsamidfsadsadsadsadas")
+    //fetchData()
+  },[])
+  // const getTeacher = async () =>{
+  //   try{
+  //     const {data} = await api("/teachers/me",{
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     })
+  //     setTeacher(data)
+  //     console.log(data)
+
+  //   } catch(error){
+  //     console.log("error")
+  //   }
+  //   console.log(teacher.isTeacher)
 
     
-  }
-  getTeacher()
+  // }
+  
 
   //aya@gmail.com hello123
   
@@ -51,7 +72,9 @@ function Header() {
       {/* {token &&<LogoutBtn/>} */}
 
       {/* {token && (teacher.isTeacher == false) &&<MyPage/>}  */}
-      {token && <MyPage/>} 
+      {(token && isTeacher) && <MyPageTeacher/> } 
+      {(token && !isTeacher) && <MyPageStu/>} 
+      {/* {(token)&& <MyPageTeacher/>}  */}
 
 
       {token &&<LogoutBtn/>} 

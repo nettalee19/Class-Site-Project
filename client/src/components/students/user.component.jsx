@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import api from "../ApiSource/api";
+import FavLessons from "../Lessons/FavLessons"
 
 
-function Teacher() {
+function Student() {
   const [student, setStudent] = useState([]);
   const [token] = useState(localStorage.getItem("token"));
   
@@ -10,7 +11,7 @@ function Teacher() {
   // const [isEdit, setIsEdit] = useState(false);
   // const [name,setName] = useState("")
 
-  const getTeacher = async () => {
+  const getStudent = async () => {
     const data = await api.get("/users/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -19,33 +20,14 @@ function Teacher() {
     console.log(student);
   };
 
-  // const editTeacher = async (e) => {
-  //   // const data = await api.get('/teachers/me',{
-  //   //   headers: { Authorization: `Bearer ${token}` }
-  //   // })
-  //   const btn = e.target.value;
-  //   console.log(btn);
-  //   if (btn == "Save") {
-  //     setSave("Edit");
-  //     setIsEdit("false");
-  //     console.log(name)
-  //   } else {
-  //     setSave("Save");
-  //     setIsEdit("true");
-  //   }
-  // };
+ 
 
   const deleteStudent = async () => {
-    //try{
     const data = await api.delete("/users/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
     localStorage.removeItem("token", data.token);
     console.log(data.token);
-
-    // }catch(error){
-    //   console.log("error")
-    // }
 
     setStudent(data.data);
     console.log(student);
@@ -54,7 +36,7 @@ function Teacher() {
 
 
   useEffect(() => {
-    getTeacher();
+    getStudent();
   }, []);
 
   return (
@@ -70,8 +52,10 @@ function Teacher() {
 
         <input type="button" value="Delete" onClick={deleteStudent} />
 
-        <p>My Favorite classes:</p>
+        <h2>My Favorite classes:</h2>
       </div>
+
+
       <div className="myLesson">
 
         
@@ -87,7 +71,7 @@ function Teacher() {
   );
 }
 
-export default Teacher;
+export default Student;
 
 
 

@@ -24,7 +24,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 
 function App() {
-  const [teacher, setTeacher] = useState(null)
+  const [teacher, setTeacher] = useState([])
   const [user, setUser] = useState([])
   
   const [lesson, setLesson] = useState([])
@@ -154,7 +154,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <Header/>
+        <Header isTeacher={teacher.isTeacher}/>
         
         <Switch>
 

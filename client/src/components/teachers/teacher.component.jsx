@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
-//import {useForm} from "react-hook-form"
-//import axios from 'axios';
 import api from "../ApiSource/api";
-// import LogoutBtn from "../header/LogoutBtn";
-// import Lessons from "../Lessons/lesson.component";
 import MyLessons from "../Lessons/MyLesson.component";
 import './teacher.css'
 
 function Teacher() {
   const [teacher, setTeacher] = useState([]);
   const [token] = useState(localStorage.getItem("token"));
-  const [save, setSave] = useState("Edit");
-  const [isEdit, setIsEdit] = useState(false);
+  // const [save, setSave] = useState("Edit");
+  // const [isEdit, setIsEdit] = useState(false);
   const [name,setName] = useState("")
 
   const getTeacher = async () => {
@@ -23,33 +19,25 @@ function Teacher() {
     console.log(teacher);
   };
 
-  const editTeacher = async (e) => {
-    // const data = await api.get('/teachers/me',{
-    //   headers: { Authorization: `Bearer ${token}` }
-    // })
-    const btn = e.target.value;
-    console.log(btn);
-    if (btn == "Save") {
-      setSave("Edit");
-      setIsEdit("false");
-      console.log(name)
-    } else {
-      setSave("Save");
-      setIsEdit("true");
-    }
-  };
+  // const editTeacher = async (e) => {
+  //   const btn = e.target.value;
+  //   console.log(btn);
+  //   if (btn == "Save") {
+  //     setSave("Edit");
+  //     setIsEdit("false");
+  //     console.log(name)
+  //   } else {
+  //     setSave("Save");
+  //     setIsEdit("true");
+  //   }
+  // };
 
   const deleteTeacher = async () => {
-    //try{
     const data = await api.delete("/teachers/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
     localStorage.removeItem("token", data.token);
     console.log(data.token);
-
-    // }catch(error){
-    //   console.log("error")
-    // }
 
     setTeacher(data.data);
     console.log(teacher);
@@ -78,57 +66,6 @@ function Teacher() {
     getTeacher();
   }, []);
 
-
-  // const [photoSelected, setPhotoSelected] = useState()
-  // const [photoPicked, setPhotoPicked] = useState()
-
-  // const changeHandler = (event) => {
-	// 	setPhotoSelected(event.target.files[0]);
-	// 	setIsSelected(true);
-	// };
-
-  // const handleSubmission = () => {
-	// 	const formData = new FormData();
-
-	// 	formData.append('avatar', photoSelected);
-
-	// 	fetch(
-	// 		'https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>',
-	// 		{
-	// 			method: 'POST',
-	// 			body: formData,
-	// 		}
-	// 	)
-	// 		.then((response) => response.json())
-	// 		.then((result) => {
-	// 			console.log('Success:', result);
-	// 		})
-	// 		.catch((error) => {
-	// 			console.error('Error:', error);
-	// 		});
-	// };
-	// };
-
-	
-
-  
-  // const photoUpload = async (e) =>{
-  //   console.log(e.target.files[0])
-  //   setPhoto(e.target.files[0])
-  // }
-  
-  // const upload = async() =>{
-  //   await api.post('/upload', {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   })
-    
-  // }
-
-
- 
-
-
-
   const [photo, setPhoto] = useState()
   const selectPhoto = (e) =>{
     console.log(e.target.files[0])
@@ -144,45 +81,21 @@ function Teacher() {
     );
       
     await api.post('/teachers/me/avatar', formData)
-      
-    // await api.post('/me/avatar', {
-    //   headers: { Authorization: `Bearer ${token}` },
-    // })
+
   }
 
 
-
-
-
-
-
-  
   const deletePhoto = async() =>{
     console.log("this is delete")
     const data = await api.delete("/teachers/me/avatar", {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-    //setPhoto(null);
-    //console.log(photo);
+
     
   }
-  // useEffect(() => {
-    
-  // }, []);
 
 
-
-
-
-  // const getTeacher = async () => {
-  //   const data = await api.get("/teachers/me", {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   });
-
-  //   setTeacher(data.data);
-  //   console.log(teacher);
-  // };
 
   return (
     <div className="TeacherMe">
@@ -209,14 +122,8 @@ function Teacher() {
       </div>
       <div className="myLesson">
 
-        {/* <input 
-        type="button" 
-        value="Log out"
-      onClick={logoutTeacher}/> */}
-
-        {/* <LogoutBtn/> */}
         <h2>My classes:</h2>
-        {/* <Lessons/> */}
+        
         <MyLessons teacher={teacher} key={teacher._id} />
 
       </div>
