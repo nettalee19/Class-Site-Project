@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Link } from 'react-router-dom';
-//import axios from 'axios';
 import api from "../ApiSource/api";
-import LogoutBtn from "../header/LogoutBtn";
-import Lessons from "../Lessons/lesson.component";
-import MyLessons from "../Lessons/MyLesson.component";
-import FavLessons from '../Lessons/FavLessons';
-// import './teacher.css'
+
 
 function Teacher() {
   const [student, setStudent] = useState([]);
   const [token] = useState(localStorage.getItem("token"));
   
-  const [save, setSave] = useState("Edit");
-  const [isEdit, setIsEdit] = useState(false);
-  const [name,setName] = useState("")
+  // const [save, setSave] = useState("Edit");
+  // const [isEdit, setIsEdit] = useState(false);
+  // const [name,setName] = useState("")
 
   const getTeacher = async () => {
     const data = await api.get("/users/me", {

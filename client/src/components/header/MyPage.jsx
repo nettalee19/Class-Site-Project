@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../header/header.css'
-import { Route } from 'react-router';
-import { BrowserRouter, Link } from 'react-router-dom';
-import api from '../ApiSource/api'
+import {  Link } from 'react-router-dom';
+
 // import Login from './components/LoginTeachers';
 
 function MyPage() {

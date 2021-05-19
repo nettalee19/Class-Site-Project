@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import { BrowserRouter, Link } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react'
+import {  Link } from 'react-router-dom';
 import '../Lessons/lessons.css'
 
 function Lesson(props) {
@@ -29,7 +28,7 @@ function Lesson(props) {
         {lesson.map(l =>{
             return <>
              <div className="lessonBox">
-              <button onClick={() => onAdd(l)}><i class="heart icon"></i></button>
+              <button className="lessonBoxBtn" onClick={() => onAdd(l)}><i class="heart icon"></i></button>
               <h4>{l.name}</h4>
               <p>{l.description}</p>
               

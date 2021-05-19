@@ -1,11 +1,7 @@
-import React, { useEffect, useState , useRef} from 'react'
-import axios from 'axios';
-// import { useHistory } from "react-router-dom";
-//import { useHistory } from "react-dom";
-//import history from "history"
+import React, {useState } from 'react'
 import api from '../components/ApiSource/api'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
-import {BrowserRouter, Switch, Route, Link, useHistory} from 'react-router-dom' //Route
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import {Link} from 'react-router-dom' //Route
 
 
 
@@ -17,7 +13,7 @@ function LoginTeachers() {
   const [email, setEmail] = useState('')
   
 
-  const [worngCredentials, setWorngCredentials] = useState("");
+  //const [worngCredentials, setWorngCredentials] = useState("");
   
   //const history = useHistory()
 
@@ -37,7 +33,8 @@ function LoginTeachers() {
       
       //history.push('/')
 		} catch (e) {
-			setWorngCredentials("User does not exist");
+			//setWorngCredentials("User does not exist");
+      console.log(e)
 		}finally{
       window.location.reload()
     }

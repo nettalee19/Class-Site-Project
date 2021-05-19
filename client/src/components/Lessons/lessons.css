@@ -31,6 +31,7 @@
       padding: 1rem;
       margin: 1rem;
       position: relative;
+      height: 10rem;
 }
 .lessonBox:hover{
   box-shadow: 1px 1px 2px grey, 0 0 5px grey, 0 0 1px lightblue;
@@ -72,12 +73,8 @@
 }
 
 
-.form-container{
-  text-align: center;
-  display: flex;
-}
 
-.FavLessonBox button{
+.lessonBoxBtn{
   border: none;
   background: none;
   text-align:right;
@@ -85,6 +82,77 @@
   right: 10px;
   transition: 0.5s;
 }
-.FavLessonBox button:hover{
+.lessonBoxBtn:hover{
   color:red;
+}
+
+/* .form-container{
+  text-align: center;
+  display: flex;
+  justify-content: end;
+} */
+.form-container h2{
+  text-align: center;
+  
+}
+
+.addNewLesson{
+  /* display: flex;
+  justify-content: space-around; */
+  height: 83vh;
+  padding: 2rem;
+}
+
+.addNewLesson form{
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  /* justify-content: space-around; */
+  margin: 10px;
+}
+
+
+.form-container .addInput{
+  
+  /* background:none; */
+  
+  text-align: center;
+  margin-top: 2rem;
+  height: 2rem;
+  transition: 0.5s;
+  width: 30rem;
+  margin-left: 28rem;
+}
+
+.form-container #description{
+  
+  /* background:none; */
+  
+  text-align: center;
+  margin-top: 2rem;
+  width: 30rem;
+  height: 10rem;
+  margin-left: 28rem;
+  transition: 0.5s;
+}
+
+.form-container .addBtn{
+  width: 7rem;
+  /* background:none; */
+  border: none;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 40rem;
+  height: 2rem;
+  transition: 0.5s;
+}
+
+.form-container .addBtn:hover{
+  background:grey
+  
+}
+
+.deletBtn{
+  color: black;
+  text-align: center;
 }

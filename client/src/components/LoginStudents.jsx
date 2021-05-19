@@ -123,9 +123,9 @@
 
 
 import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import api from '../components/ApiSource/api'
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom' //Route
+import { Link} from 'react-router-dom' //Route
 
 
 
@@ -133,7 +133,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
-  const [worngCredentials, setWorngCredentials] = useState("");
+  //const [worngCredentials, setWorngCredentials] = useState("");
 
   const login = async (e) => {
 		e.preventDefault();
@@ -148,7 +148,8 @@ const LoginForm = () => {
       console.log(data.teacher.name)
       //history.push('/')
 		} catch (e) {
-			setWorngCredentials("User does not exist");
+			//setWorngCredentials("User does not exist");
+      console.log(e)
 		}
 	};
 

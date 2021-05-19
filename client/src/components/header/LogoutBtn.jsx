@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import '../header/header.css'
-import { Route } from 'react-router';
-import { BrowserRouter, Link } from 'react-router-dom';
-import api from '../ApiSource/api'
 // import Login from './components/LoginTeachers';
 
 function LogoutBtn() {

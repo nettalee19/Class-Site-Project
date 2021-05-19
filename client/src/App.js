@@ -16,9 +16,7 @@ import SignUpTeachers from './components/SignUpTeachers';
 
 import axios from 'axios';
 import api from './components/ApiSource/api'
-import EditLesson from './components/Lessons/EditLesson'
 import Main from './components/MainPage/MainContent'
-import Second from './components/MainPage/Second'
 import Footer from './components/Footer/Footer'
 import 'semantic-ui-css/semantic.min.css'
 
@@ -112,17 +110,15 @@ function App() {
     // console.log(favoriteLessons)
   }
   const onRemove = async (title) =>{
-    const config = {
-			headers: { Authorization: `Bearer ${token}` }
-		};
-		const bodyParameters = {
-		   title
-		};
     await api.delete( 
-      'users/me/removefav',
-      bodyParameters,
-      config
-    ).then(console.log).catch(console.log());
+      'users/me/removefav',{
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        data: {
+          title
+        }
+      });
     // const exist = favoriteLessons.find(x => x._id === lesson._id)  
 		// if(!exist){
     // const config = {

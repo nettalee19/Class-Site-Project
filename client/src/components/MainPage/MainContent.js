@@ -1,7 +1,4 @@
 import React from 'react'
-import image from "./teacher.jpg"
-import teacher1 from "./teacher1.jfif"
-import teacher2 from "./teacher2.png"
 import teacherStudent from "./teacher+student.jpg"
 import './Main.css'
 

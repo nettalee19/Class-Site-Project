@@ -123,7 +123,7 @@
 
 
 import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import api from '../components/ApiSource/api'
 import { Link} from 'react-router-dom' //Route
 
@@ -136,7 +136,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
-  const [worngCredentials, setWorngCredentials] = useState("");
+  //const [worngCredentials, setWorngCredentials] = useState("");
 
   const signUp = async (e) => {
 		e.preventDefault();

@@ -12,7 +12,7 @@ function AddNewLesson() {
 
 	const addLesson = async (e) => {
 		e.preventDefault();
-		const token2= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyOGYzYTk3MjU5ODNhMWNlMzU5MTMiLCJpYXQiOjE2MjAzOTc0MDB9.QTsLTY2GgdQnUXwoI5dRRGNLE4kb9j4A_0_BefLNC7I"
+		//const token2= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyOGYzYTk3MjU5ODNhMWNlMzU5MTMiLCJpYXQiOjE2MjAzOTc0MDB9.QTsLTY2GgdQnUXwoI5dRRGNLE4kb9j4A_0_BefLNC7I"
 		// try {
 		// 	const { data } = await api.post("/class", 
 		// 		{
@@ -47,13 +47,15 @@ function AddNewLesson() {
 
 
   return (
-    <div className="addNewLesson Lesson">
+    <div className="addNewLesson">
+    {/* <div className="addNewLesson Lesson"> */}
       <div className="form-container ">
+				<h2>Add a new Class:</h2>
 					<form>
-						<h2>Add a new Class:</h2>
 						<input
 							type="name"
-							placeholder="Name"
+							placeholder="Class Name"
+							className="addInput"
 							onChange={(e) => setName(e.target.value)}
 						/>
 
@@ -73,7 +75,7 @@ function AddNewLesson() {
 
 
 						{/* <button onClick={signUp}>Sign Un</button> */}
-						<input type="button" value="Submit" onClick={addLesson}/>
+						<input type="button" value="Submit" className="addBtn" onClick={addLesson}/>
 					</form>
 				</div>
       

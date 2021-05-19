@@ -88,7 +88,7 @@ const upload = multer({
     }
 })
 
-router.post('/me/avatar', upload.single('avatar'), async (req,res) =>{
+router.post('/me/avatar', auth, upload.single('avatar'), async (req,res) =>{
     console.log(req.file)
     const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250}).png().toBuffer()
     req.teacher.avatar = buffer

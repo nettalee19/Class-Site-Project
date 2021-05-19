@@ -1,10 +1,8 @@
 // import styled from "styled-components"
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../header/header.css'
 import { Link } from 'react-router-dom';
-// import Login from './components/LoginTeachers';
 import LoginLink from "./LoginLink"
-import Welcome from "./Welcome"
 import MyPage from "./MyPage"
 import LogoutBtn from "./LogoutBtn"
 import api from '../ApiSource/api'

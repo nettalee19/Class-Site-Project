@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import { Route } from 'react-router';
-import { BrowserRouter, Link } from 'react-router-dom';
 import axios from 'axios';
 import '../Lessons/lessons.css'
 import api from '../ApiSource/api'
 import DeleteBtn from './DeleteBtn'
-import EditLesson from '../Lessons/EditLesson'
+
 
 function Lesson({teacher}) {
   const [lesson, setLesson] = useState([])
@@ -39,15 +37,12 @@ function Lesson({teacher}) {
 
   const deleteLesson2 = async (id)=>{
     console.log(id)
-    // const {id}=useParams();
-
-    // const oneLesson=lesson.filter(l=>l.id===id)
     try{
        await api.delete(`/class/${id}`,{
         headers: { Authorization: `Bearer ${token}` },
       })
       setDeleteItem(id)
-      // localStorage.removeItem("token", data.token)
+      
     }catch(error){
       console.log(error.response)
     }
@@ -66,23 +61,10 @@ function Lesson({teacher}) {
              <div className="lessonBox">
               <h4>{l.name}</h4>
               <p>{l.description}</p>
-              
-              <DeleteBtn id={l._id} deleteLesson={ () => deleteLesson2(l._id)}/>
-              {/* <DeleteBtn lesson={lesson} key={l._id}/> */}
+              <div className="deletBtn">
+                <DeleteBtn id={l._id}  deleteLesson={ () => deleteLesson2(l._id)}/>
 
-              {/* <BrowserRouter> */}
-              {/* <button onClick={deleteLesson}>Delete Class</button> */}
-              {/* <button>Edit Class</button> */}
-
-              {/* <Route>
-                  <Link to="/loginTeachers/me/editLesson" component={EditLesson}><button>Edit Class</button></Link>
-              </Route> */}
-
-                {/* <Route exact path='/loginTeachers/me/editLesson'>
-                  <EditLesson/>
-                </Route> */}
-           
-              {/* </BrowserRouter> */}
+              </div>
             </div> 
           </>
 

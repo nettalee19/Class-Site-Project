@@ -4,7 +4,8 @@ import api from "../ApiSource/api";
 import "../Lessons/lessons.css";
 
 function Lesson(props) {
-  const { favoriteLessons, onRemove, lesson } = props;
+  const { favoriteLessons, onRemove  } = props;
+ //const { favoriteLessons, onRemove, lesson } = props;
   //const {lesson, onRemove} = props
   const [token] = useState(localStorage.getItem("token"));
   const [fav, setFav] = useState([]);
@@ -36,9 +37,9 @@ function Lesson(props) {
   });
   return (
     <div className="FavLesson">
-      {favoriteLessons.length === 0 && (
+      {/* {favoriteLessons.length === 0 && (
         <div>You don't have any favorite lessons</div>
-      )}
+      )} */}
       {renderFav}
 
       {/* {favoriteLessons.map((lesson) => {
