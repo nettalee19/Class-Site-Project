@@ -155,7 +155,9 @@ const LoginForm = () => {
       //history.push('/')
 		} catch (e) {
 			console.log("error")
-		}
+		}finally{
+      window.location.reload()
+    }
 	};
 
 return(

@@ -10,7 +10,7 @@ function MainContent() {
                 <img src={teacherStudent} alt="main" />
 
                 <div className="mainText">
-                    <h1>Our goal is to connect between students and teachers</h1>
+                    <h1>Our goal is to connect students and teachers</h1>
                     {/* <h1>here to help you acheive your goals</h1> */}
                 </div>
 

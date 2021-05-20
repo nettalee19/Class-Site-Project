@@ -101,7 +101,7 @@ function Teacher() {
     <div className="TeacherMe">
       <div className="TeacherMeInfo">
         
-        {teacher.avatar? <img src={`data:image/jpg;base64,${teacher.avatar}`}/> : null }
+        {teacher.avatar? <img src={`data:image/jpg;base64,${teacher.avatar}`} className="deletePhoto"/> : null }
         {teacher.avatar? <input type="button" onClick={deletePhoto} value="Delete Photo"/> : null }
         
         <p>{teacher.name}</p>

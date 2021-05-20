@@ -18,6 +18,7 @@ router.get("/me", auth, (req, res) => {
 
 router.post("/", (req, res) => {
   userController.addUser(req, res);
+  //res.status(200).send("hello")
 });
 
 router.put("/me", auth, (req, res) => {

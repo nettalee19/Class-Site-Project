@@ -39,9 +39,9 @@ function Lesson(props) {
 
         </div>
 
-        <div>
+        {/* <div>
           <Link to="/favorites">Favorites</Link>
-        </div>
+        </div> */}
       
     </div>
   );

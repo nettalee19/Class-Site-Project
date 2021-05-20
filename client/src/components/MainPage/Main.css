@@ -46,5 +46,9 @@
 
   .mainText{
     text-align: center;
-    padding: 6rem;
+    padding: 8rem;
+  }
+
+  .mainText h1{
+    font-size: 40px;
   }

@@ -176,7 +176,15 @@ function App() {
           <Route exact path='/loginTeachers/me' component={Teacher}>
             {/* <Teacher/> */}
           </Route>
-          <Route exact path="/signUpTeach" component={SignUpTeachers}>
+          <Route exact path="/signUpTeach" 
+          // component={SignUpTeachers}
+          
+          render={() =>
+            
+            token ? <Redirect to="/" /> : <SignUpTeachers/>
+          }
+          
+          >
             {/* <LoginTeachers/> */}
           </Route>
 
@@ -185,11 +193,27 @@ function App() {
             {/* <AddNewLesson/> */}
           </Route>
 
-          <Route exact path="/loginStudents" component={LoginStu}>
+          <Route exact path="/loginStudents" 
+          // component={LoginStu}
+          render={() =>
+            
+            token ? <Redirect to="/" /> : <LoginStu/>
+          }
+          
+          >
             {/* <LoginTeachers/> */}
+            
           </Route>
 
-          <Route exact path="/signUpStu" component={SignUpStudents}>
+          <Route exact path="/signUpStu" 
+          // component={SignUpStudents}
+          
+          render={() =>
+            
+            token ? <Redirect to="/" /> : <SignUpStudents/>
+          }
+          
+          >
             {/* <LoginTeachers/> */}
           </Route>
 
@@ -201,7 +225,7 @@ function App() {
 
           <Route exact path='/lessons'>
             <Lesson lesson={lesson} onAdd={onAdd}/>
-            <FavLessons favoriteLessons={favoriteLessons} onAdd={onAdd} onRemove={onRemove}/>
+            {/* <FavLessons favoriteLessons={favoriteLessons} onAdd={onAdd} onRemove={onRemove}/> */}
           </Route>
             
 

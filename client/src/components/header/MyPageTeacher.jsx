@@ -11,7 +11,9 @@ function MyPageTeacher() {
     <div className="StudentHeader">
       <Link to="/loginTeachers/me"><li className="myPage">My Page</li></Link>
       
-      <Link to="/lessons"><li className="lessonsLink">Lessons</li></Link>
+      <Link to="/loginTeachers/me/addNewLesson"><li className="lessonsLink">Add a new Lesson</li></Link>
+
+      <Link to="/lessons"><li className="lessonsLink">All Lessons</li></Link>
 
     </div>
   );

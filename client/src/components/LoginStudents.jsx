@@ -150,7 +150,9 @@ const LoginForm = () => {
 		} catch (e) {
 			//setWorngCredentials("User does not exist");
       console.log(e)
-		}
+		}finally{
+      window.location.reload()
+    }
 	};
 
 return(

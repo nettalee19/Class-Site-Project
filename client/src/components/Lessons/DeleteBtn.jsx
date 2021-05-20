@@ -29,7 +29,7 @@ function DeleteBtn({id,deleteLesson}) {
 
     return (
         <div>
-            <button onClick={deleteLesson}>Delete Class</button>
+            <button onClick={deleteLesson} className="deleteClassBtn">Delete Class</button>
         </div>
     )
 }

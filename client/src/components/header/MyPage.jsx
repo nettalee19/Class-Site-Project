@@ -11,7 +11,7 @@ function MyPage() {
     <div className="StudentHeader">
       <Link to="/loginStudents/me"><li className="myPage">My Page</li></Link>
       
-      <Link to="/lessons"><li className="lessonsLink">Lessons</li></Link>
+      <Link to="/lessons"><li className="lessonsLink">All Lessons</li></Link>
 
     </div>
   );

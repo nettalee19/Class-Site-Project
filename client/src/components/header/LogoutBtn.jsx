@@ -6,8 +6,10 @@ function LogoutBtn() {
   const [token] = useState(localStorage.getItem("token"));
 
   const logoutTeacher = async () =>{
-    localStorage.removeItem("token", token)
-    console.log("no one is in the system")
+    // localStorage.removeItem("token", token)
+    // console.log("no one is in the system")
+
+
     // try{
     //   const data = await api.post('/teachers/logout')
     //   console.log(data)
@@ -15,6 +17,15 @@ function LogoutBtn() {
     // }catch(error){
     //   console.log(error)
     // }
+
+    try{
+      localStorage.removeItem("token", token)
+      console.log("no one is in the system")
+    }catch(e){
+      console.log(e)
+    }finally{
+      window.location.reload()
+    }
   }
 
   return (

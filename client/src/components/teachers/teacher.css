@@ -16,3 +16,23 @@
     padding-left: 2rem;
     padding-top: 3rem;
 }
+
+.TeacherMe input{
+    background: none;
+    border: black 1px solid;
+    margin: 1px;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.deletePhoto{
+    font-size: 44px;
+}
+
+.TeacherMe input:hover{
+    background: none;
+    border: black 1px solid;
+    margin: 1px;
+    padding: 2px;
+    border-radius: 2px;
+}

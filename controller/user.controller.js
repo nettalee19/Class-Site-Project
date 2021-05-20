@@ -9,8 +9,10 @@ const getUsers = async (req,res) =>{
 
 const addUser = async (req,res) =>{
         const student = new Users(req.body)
+        //console.log(typeof(req.body))
         try{
             await student.save()
+            console.log(student)
             const token = await student.generateAuthToken()
             res.status(201).send({ student, token})
         }catch(e){
