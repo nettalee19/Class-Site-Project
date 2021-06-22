@@ -1,7 +1,9 @@
-# express and react boilerplate!
+<!-- # express and react boilerplate!
 
 ## after cloning the project type in the console:
 
 ### •npm install
 
-### •npm run client-install
+### •npm run client-install -->
+
+Class Site
