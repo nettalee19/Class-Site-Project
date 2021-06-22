@@ -41,7 +41,7 @@
   .main{
       display: flex;
       background: var(--back-bg-color);
-      height: 84vh;
+      height: 93vh;
   }
 
   .mainText{
