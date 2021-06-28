@@ -27,8 +27,8 @@ const server = 'mongodb+srv://nettalee19:dM_HqsyqT9K8LK.@cluster0.u9jns.mongodb.
                
 
 // Connect to db with mongoose
-mongoose.connect('mongodb://localhost/classes', {
-//mongoose.connect(server, {
+//mongoose.connect('mongodb://localhost/classes', {
+mongoose.connect(server, {
 //mongoose.connect('mongodb+srv://nettalee19:dM_HqsyqT9K8LK.@cluster0.u9jns.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
 //mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
